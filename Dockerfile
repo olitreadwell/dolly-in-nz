@@ -1,24 +1,13 @@
-# Multi-stage build: install, compile to standalone output, run slim.
-FROM node:22-alpine AS deps
+# Multi-stage build: compile the static export, then serve it from nginx.
+FROM node:22-alpine AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
-
-FROM node:22-alpine AS build
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN npm run build
 
-FROM node:22-alpine AS runner
-WORKDIR /app
-ENV NODE_ENV=production
-ENV PORT=3000
-ENV HOSTNAME=0.0.0.0
-COPY --from=build /app/.next/standalone ./
-COPY --from=build /app/.next/static ./.next/static
-COPY --from=build /app/public ./public
-EXPOSE 3000
+FROM nginx:1.27-alpine AS runner
+COPY --from=build /app/out /usr/share/nginx/html/dolly-in-welly
+EXPOSE 80
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
-  CMD wget -qO- http://127.0.0.1:3000/health || exit 1
-CMD ["node", "server.js"]
+  CMD wget -qO- http://127.0.0.1/dolly-in-welly/ || exit 1

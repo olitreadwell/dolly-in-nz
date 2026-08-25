@@ -1,4 +1,37 @@
-# Starter Template
+# Dolly In Welly
+
+Single-page memorial for Dolly Parton (19 January 1946 - 25 August 2026),
+built with a Wellington, New Zealand twist and deployed to GitHub Pages at
+https://olitreadwell.github.io/dolly-in-welly/.
+
+## Run it
+
+```sh
+npm install
+npm run dev        # http://localhost:3000/dolly-in-welly
+npm run check      # full gate: format, lint, typecheck, tests, build, smoke, e2e
+```
+
+## How it is built
+
+- Next.js static export (`output: 'export'`) with `basePath: '/dolly-in-welly'`,
+  deployed by `.github/workflows/pages.yml` to GitHub Pages.
+- Tailwind 4 theme: deep green ink, rhinestone gold accent, Cormorant
+  Garamond display serif. Dark page locked, `prefers-reduced-motion`
+  respected, sharp corners, no em-dashes.
+- All copy and sources live in `src/data/memorialContent.ts`. Every fact is
+  sourced to RNZ, the NZ Herald archive, Wikipedia tour records, or the
+  Dollywood Foundation. Nothing is invented.
+- Photographs are Wikimedia Commons files under their licenses. Credits
+  appear inline in the gallery and in `public/images/ATTRIBUTION.md`.
+
+## Gathering Dolly-in-Wellington material
+
+This repo is the home of the Dolly-in-Welly research. The public library
+`olitreadwell/nz-open-data-connectors` (NZ public data connectors) stays
+separate and can be used as a tool to search data.govt.nz, DigitalNZ and
+other NZ open data sources for Dolly Parton coverage. Sources found there
+belong in this repo, never in the library.
 
 [![CI](https://github.com/olitreadwell/template/actions/workflows/ci.yml/badge.svg)](https://github.com/olitreadwell/template/actions/workflows/ci.yml)
 

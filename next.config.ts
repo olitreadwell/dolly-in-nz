@@ -1,7 +1,8 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  output: 'standalone',
+  output: 'export',
+  basePath: '/dolly-in-welly',
   reactStrictMode: true,
   allowedDevOrigins: ['127.0.0.1'],
 };

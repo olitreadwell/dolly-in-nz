@@ -21,12 +21,12 @@ jobs:
       - name: Build image
         run: docker build -t template-app .
       - name: Run container
-        run: docker run -d --rm -p 3521:3000 --name template-app template-app
-      - name: Wait for /health
+        run: docker run -d --rm -p 3521:80 --name template-app template-app
+      - name: Wait for the memorial page
         run: |
           for _ in $(seq 1 60); do
-            if curl -fsS http://127.0.0.1:3521/health >/dev/null 2>&1; then
-              echo "health ok"
+            if curl -fsS http://127.0.0.1:3521/dolly-in-welly/ >/dev/null 2>&1; then
+              echo "page ok"
               exit 0
             fi
             sleep 1
