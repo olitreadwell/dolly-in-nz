@@ -20,7 +20,7 @@ describe('HomePage', () => {
 
   it('renders the Wellington twist section', () => {
     render(<HomePage />);
-    expect(screen.getByText('She never played here.')).toBeInTheDocument();
+    expect(screen.getByText('One night in Aotearoa.')).toBeInTheDocument();
     expect(screen.getByText(/7 February 2014, Vector Arena/)).toBeInTheDocument();
     expect(screen.getByText(/a full night of her songs/)).toBeInTheDocument();
     expect(screen.getByText(/13 May 2023/)).toBeInTheDocument();

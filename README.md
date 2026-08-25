@@ -1,20 +1,20 @@
-# Dolly In Welly
+# The Wind Keeps Her Songs
 
 Single-page memorial for Dolly Parton (19 January 1946 - 25 August 2026),
 built with a Wellington, New Zealand twist and deployed to GitHub Pages at
-https://olitreadwell.github.io/dolly-in-welly/.
+https://olitreadwell.github.io/the-wind-keeps-her-songs/.
 
 ## Run it
 
 ```sh
 npm install
-npm run dev        # http://localhost:3000/dolly-in-welly
+npm run dev        # http://localhost:3000/the-wind-keeps-her-songs
 npm run check      # full gate: format, lint, typecheck, tests, build, smoke, e2e
 ```
 
 ## How it is built
 
-- Next.js static export (`output: 'export'`) with `basePath: '/dolly-in-welly'`,
+- Next.js static export (`output: 'export'`) with `basePath: '/the-wind-keeps-her-songs'`,
   deployed by `.github/workflows/pages.yml` to GitHub Pages.
 - Tailwind 4 theme: deep green ink, rhinestone gold accent, Cormorant
   Garamond display serif. Dark page locked, `prefers-reduced-motion`

@@ -2,7 +2,7 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   output: 'export',
-  basePath: '/dolly-in-welly',
+  basePath: '/the-wind-keeps-her-songs',
   reactStrictMode: true,
   allowedDevOrigins: ['127.0.0.1'],
 };

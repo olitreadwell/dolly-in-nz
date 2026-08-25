@@ -28,7 +28,7 @@ export interface GalleryImage {
   sourceUrl: string;
 }
 
-const basePath = '/dolly-in-welly';
+const basePath = '/the-wind-keeps-her-songs';
 const imagesDir = `${basePath}/images`;
 
 /**
@@ -113,8 +113,8 @@ export const timelineEntries: readonly TimelineEntry[] = [
 ];
 
 export const wellingtonCopy = {
-  eyebrow: 'Wellington, Aotearoa',
-  title: 'She never played here.',
+  eyebrow: 'Dolly in Aotearoa',
+  title: 'One night in Aotearoa.',
   body: [
     '7 February 2014, Vector Arena, Auckland. The Blue Smoke tour touched down in Aotearoa once, and the album went on sale here on 31 January, months ahead of the United States.',
     'Wellington never got a date. The wind made it up to her. It still carries her songs up Cuba Street, across the harbour and over Mt Victoria, the way it carries everything else.',

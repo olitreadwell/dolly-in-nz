@@ -35,9 +35,11 @@ describe('memorialContent', () => {
   });
 
   it('builds basePath-prefixed image urls for static export', () => {
-    expect(getMemorialImageUrl('dolly-1977.jpg')).toBe('/dolly-in-welly/images/dolly-1977.jpg');
+    expect(getMemorialImageUrl('dolly-1977.jpg')).toBe(
+      '/the-wind-keeps-her-songs/images/dolly-1977.jpg'
+    );
     for (const image of galleryImages) {
-      expect(image.src).toMatch(/^\/dolly-in-welly\/images\//);
+      expect(image.src).toMatch(/^\/the-wind-keeps-her-songs\/images\//);
     }
   });
 
