@@ -6,6 +6,7 @@ import { FooterSection } from '@/components/FooterSection';
 import { GallerySection } from '@/components/GallerySection';
 import { Hero } from '@/components/Hero';
 import { Nav } from '@/components/Nav';
+import { PressSection } from '@/components/PressSection';
 import { SongMarquee } from '@/components/SongMarquee';
 import { Timeline } from '@/components/Timeline';
 import { TributeCards } from '@/components/TributeCards';
@@ -25,6 +26,7 @@ export function App(): ReactNode {
         <SongMarquee />
         <Timeline />
         <WellingtonSection />
+        <PressSection />
         <TributeCards />
         <BooksSection />
         <GallerySection />

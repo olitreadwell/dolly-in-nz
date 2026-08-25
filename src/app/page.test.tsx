@@ -1,7 +1,13 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import HomePage from '@/app/page';
-import { galleryImages, sourceLinks, timelineEntries, tributeCards } from '@/data/memorialContent';
+import {
+  galleryImages,
+  pressArticles,
+  sourceLinks,
+  timelineEntries,
+  tributeCards,
+} from '@/data/memorialContent';
 
 describe('HomePage', () => {
   it('renders the hero with title, subtitle and CTA', () => {
@@ -20,10 +26,18 @@ describe('HomePage', () => {
 
   it('renders the Wellington twist section', () => {
     render(<HomePage />);
-    expect(screen.getByText('One night in Aotearoa.')).toBeInTheDocument();
-    expect(screen.getByText(/7 February 2014, Vector Arena/)).toBeInTheDocument();
+    expect(screen.getByText('Two nights in Aotearoa.')).toBeInTheDocument();
+    expect(screen.getByText(/7 and 8 February 2014, Vector Arena/)).toBeInTheDocument();
     expect(screen.getByText(/a full night of her songs/)).toBeInTheDocument();
     expect(screen.getByText(/13 May 2023/)).toBeInTheDocument();
+  });
+
+  it('renders every New Zealand press article', () => {
+    render(<HomePage />);
+    expect(screen.getByRole('heading', { name: /In the New Zealand press/ })).toBeInTheDocument();
+    for (const clip of pressArticles) {
+      expect(screen.getByText(clip.headline)).toBeInTheDocument();
+    }
   });
 
   it('renders all tribute cards with read links', () => {

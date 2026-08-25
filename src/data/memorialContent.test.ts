@@ -3,6 +3,7 @@ import {
   galleryImages,
   getMemorialImageUrl,
   heroCopy,
+  pressArticles,
   sourceLinks,
   timelineEntries,
   tributeCards,
@@ -24,6 +25,17 @@ describe('memorialContent', () => {
     for (const card of tributeCards) {
       expect(card.url).toMatch(/^https:\/\//);
       expect(card.quote).toBeTruthy();
+    }
+  });
+
+  it('gives every press article a source url, date and kind', () => {
+    const validKinds = new Set(['article', 'audio', 'photo', 'video']);
+    for (const clip of pressArticles) {
+      expect(clip.url).toMatch(/^https:\/\//);
+      expect(clip.date).toMatch(/^\d{1,2} [A-Z][a-z]{2} \d{4}$/);
+      expect(clip.headline).not.toHaveLength(0);
+      expect(clip.quote).toBeTruthy();
+      expect(validKinds.has(clip.kind)).toBe(true);
     }
   });
 
