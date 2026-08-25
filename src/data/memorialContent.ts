@@ -187,8 +187,7 @@ export const galleryImages: readonly GalleryImage[] = [
     caption: 'Kennedy Center Honors, 2006',
     credit: 'White House photo by Eric Draper',
     license: 'Public domain',
-    sourceUrl:
-      'https://commons.wikimedia.org/wiki/File:2006_Kennedy_Center_honorees_(cropped).jpg',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:2006_Kennedy_Center_honorees_(cropped).jpg',
   },
 ];
 
