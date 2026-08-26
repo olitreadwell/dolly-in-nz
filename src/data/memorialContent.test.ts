@@ -69,9 +69,11 @@ describe('memorialContent', () => {
     }
   });
 
-  it('gives every music song a youtube video id', () => {
+  it('points every music song at a streamable cover recording', () => {
     for (const song of musicSongs) {
-      expect(song.videoId).toMatch(/^[0-9A-Za-z_-]{11}$/);
+      expect(song.audioUrl).toMatch(/^https:\/\/archive\.org\/download\//);
+      expect(song.sourceUrl).toMatch(/^https:\/\/archive\.org\/details\//);
+      expect(song.artist).not.toHaveLength(0);
       expect(song.title).not.toHaveLength(0);
     }
   });
@@ -90,10 +92,9 @@ describe('memorialContent', () => {
     }
   });
 
-  it('keeps the story opener weather-sourced', () => {
-    expect(storyCopy.weatherNote).toMatch(/The Press Noon Forecast/);
-    expect(storyCopy.weatherSourceUrl).toMatch(/^https:\/\/paperspast\.natlib\.govt\.nz\//);
+  it('keeps the story opener short and weather-light', () => {
     expect(storyCopy.intro.length).toBeGreaterThan(1);
+    expect(storyCopy.intro[0]).not.toContain('Noon Forecast');
   });
 
   it('sources or labels every funny quote', () => {

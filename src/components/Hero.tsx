@@ -34,11 +34,11 @@ export function Hero(): ReactNode {
           className="animate-twinkle absolute bottom-1/4 right-[8%] text-gold-soft [animation-delay:2s]"
         />
       </div>
-      <div className="flex flex-col justify-center px-5 py-16 lg:px-16 lg:py-0">
+      <div className="flex flex-col justify-center px-5 pt-28 pb-16 lg:px-16 lg:pt-0 lg:pb-0">
         <p className="animate-rise mb-6 text-[11px] uppercase tracking-[0.22em] text-gold">
           {heroCopy.eyebrow}
         </p>
-        <h1 className="animate-rise font-display text-6xl leading-[0.95] font-semibold tracking-tight md:text-7xl">
+        <h1 className="animate-rise font-display text-7xl leading-[0.92] font-semibold tracking-tight md:text-8xl">
           {heroCopy.titlePre} <em className="text-gold-soft">{heroCopy.titleEm}</em>
         </h1>
         <p className="animate-rise mt-6 max-w-[42ch] text-lg leading-relaxed text-moss">
@@ -46,10 +46,12 @@ export function Hero(): ReactNode {
         </p>
         <a
           href={heroCopy.ctaHref}
-          className="animate-rise mt-10 inline-flex w-fit items-center gap-2 bg-gold px-6 py-3 text-sm font-semibold tracking-wide text-ink transition-transform hover:-translate-y-0.5 hover:bg-gold-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold active:translate-y-0"
+          className="animate-rise group mt-10 inline-flex w-fit items-center rounded-full bg-gold py-3 pr-3 pl-7 text-sm font-semibold tracking-wide text-ink shadow-heaven-sm transition-all duration-500 ease-heaven hover:-translate-y-0.5 hover:bg-gold-soft hover:shadow-heaven focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold active:translate-y-0 active:scale-[0.98]"
         >
           {heroCopy.cta}
-          <ArrowDownIcon size={16} weight="bold" />
+          <span className="ml-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/25 transition-transform duration-500 ease-heaven group-hover:translate-y-0.5">
+            <ArrowDownIcon size={16} weight="bold" aria-hidden="true" />
+          </span>
         </a>
       </div>
       <div className="relative min-h-[50vh] lg:min-h-0">

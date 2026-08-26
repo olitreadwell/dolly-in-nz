@@ -11,17 +11,19 @@ describe('MusicPlayer', () => {
     expect(screen.queryByTitle('Jolene')).not.toBeInTheDocument();
   });
 
-  it('opens the song list and loads the embed only after a song is picked', () => {
+  it('opens the song list and loads the audio only after a song is picked', () => {
     render(<MusicPlayer />);
     fireEvent.click(screen.getByRole('button', { name: 'Listen to Dolly Parton' }));
     expect(screen.getByRole('dialog')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Jolene' })).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button', { name: 'Jolene' }));
-    const iframe = screen.getByTitle('Jolene');
-    expect(iframe).toHaveAttribute(
-      'src',
-      'https://www.youtube-nocookie.com/embed/Ixrje2rXLMA?rel=0'
+    const audio = screen.getByTitle('Jolene');
+    expect(audio.tagName).toBe('AUDIO');
+    expect(audio).toHaveAttribute('aria-label', 'Jolene, covered by Sunny & the Whisky Machine');
+    expect(audio).not.toHaveAttribute('autoplay');
+    expect(audio.querySelector('source')?.getAttribute('src')).toContain(
+      'kdur_dollyparton2023-02-11t-55.mp3'
     );
   });
 

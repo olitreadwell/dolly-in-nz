@@ -27,25 +27,29 @@ export function FirstShowSection(): ReactNode {
           ))}
         </Reveal>
         <Reveal className="relative">
-          <div className="border border-gold/30 bg-ink p-8">
-            <p className="font-display text-7xl font-semibold text-gold-soft">1979</p>
-            <p className="mt-2 flex items-center gap-2 text-sm text-moss">
-              <MapPinIcon size={16} className="text-gold" aria-hidden="true" />
-              Auckland Town Hall, 11 July
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-moss">
-              Her first concert in New Zealand, and her only solo show here before the Blue Smoke
-              tour.
-            </p>
-            <a
-              href={firstShowCopy.ctaHref}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-gold underline-offset-4 hover:underline focus-visible:underline"
-            >
-              {firstShowCopy.cta}
-              <ArrowUpRightIcon size={14} weight="bold" aria-hidden="true" />
-            </a>
+          <div className="rounded-[2rem] bg-white/45 p-1.5 shadow-heaven ring-1 ring-gold/15">
+            <div className="bg-ink p-8">
+              <p className="font-display text-7xl font-semibold text-gold-soft">1979</p>
+              <p className="mt-2 flex items-center gap-2 text-sm text-moss">
+                <MapPinIcon size={16} className="text-gold" aria-hidden="true" />
+                Auckland Town Hall, 11 July
+              </p>
+              <p className="mt-4 text-sm leading-relaxed text-moss">
+                Her first concert in New Zealand, and her only solo show here before the Blue Smoke
+                tour.
+              </p>
+              <a
+                href={firstShowCopy.ctaHref}
+                target="_blank"
+                rel="noreferrer"
+                className="group mt-6 inline-flex items-center text-sm font-semibold text-gold underline-offset-4 hover:underline focus-visible:underline"
+              >
+                {firstShowCopy.cta}
+                <span className="ml-2 flex h-7 w-7 items-center justify-center rounded-full bg-gold/10 transition-transform duration-500 ease-heaven group-hover:translate-x-0.5">
+                  <ArrowUpRightIcon size={14} weight="bold" aria-hidden="true" />
+                </span>
+              </a>
+            </div>
           </div>
         </Reveal>
       </div>

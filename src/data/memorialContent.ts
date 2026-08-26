@@ -433,16 +433,62 @@ export const booksCopy = {
 
 export interface MusicSong {
   title: string;
-  videoId: string;
+  artist: string;
+  audioUrl: string;
+  sourceUrl: string;
 }
 
-export const musicSongs = [
-  { title: 'Jolene', videoId: 'Ixrje2rXLMA' },
-  { title: '9 to 5', videoId: 'UbxUSsFXYo4' },
-  { title: 'I Will Always Love You', videoId: 'lKsQR72HY0s' },
-  { title: 'Islands in the Stream', videoId: 'UaNGtgYwSsU' },
-  { title: 'Blue Smoke', videoId: '1Ws8ZHkJjA4' },
-] as const satisfies readonly MusicSong[];
+export const musicSongs: readonly MusicSong[] = [
+  {
+    title: 'Jolene',
+    artist: 'Sunny & the Whisky Machine',
+    audioUrl:
+      'https://archive.org/download/kdur_dollyparton_covers_night2023-02-11/kdur_dollyparton2023-02-11t-55.mp3',
+    sourceUrl: 'https://archive.org/details/kdur_dollyparton_covers_night2023-02-11',
+  },
+  {
+    title: '9 to 5',
+    artist: 'Backyard Barbies',
+    audioUrl:
+      'https://archive.org/download/kdur_dollyparton_covers_night2023-02-11/kdur_dollyparton2023-02-11t-29.mp3',
+    sourceUrl: 'https://archive.org/details/kdur_dollyparton_covers_night2023-02-11',
+  },
+  {
+    title: 'I Will Always Love You',
+    artist: 'The Badly Bent',
+    audioUrl:
+      'https://archive.org/download/kdur_dollyparton_covers_night2023-02-11/kdur_dollyparton2023-02-11t-16.mp3',
+    sourceUrl: 'https://archive.org/details/kdur_dollyparton_covers_night2023-02-11',
+  },
+  {
+    title: 'Islands in the Stream',
+    artist: 'Double D Wranglers',
+    audioUrl:
+      'https://archive.org/download/kdur_dollyparton_covers_night2023-02-11/kdur_dollyparton2023-02-11t-32.mp3',
+    sourceUrl: 'https://archive.org/details/kdur_dollyparton_covers_night2023-02-11',
+  },
+  {
+    title: 'Coat of Many Colors',
+    artist: 'Dead River Band',
+    audioUrl:
+      'https://archive.org/download/kdur_dollyparton_covers_night2023-02-11/kdur_dollyparton2023-02-11t-25.mp3',
+    sourceUrl: 'https://archive.org/details/kdur_dollyparton_covers_night2023-02-11',
+  },
+  {
+    title: 'Here You Come Again',
+    artist: 'Hotel Draw',
+    audioUrl:
+      'https://archive.org/download/kdur_dollyparton_covers_night2023-02-11/kdur_dollyparton2023-02-11t-23.mp3',
+    sourceUrl: 'https://archive.org/details/kdur_dollyparton_covers_night2023-02-11',
+  },
+  {
+    title: 'Blue Smoke',
+    artist: 'The Reverse Cowboys (aka Carute Roma)',
+    audioUrl:
+      'https://archive.org/download/kdur_dollyparton_covers_night2023-02-11/kdur_dollyparton2023-02-11t-35.mp3',
+    sourceUrl: 'https://archive.org/details/kdur_dollyparton_covers_night2023-02-11',
+  },
+];
 
 export const galleryImages: readonly GalleryImage[] = [
   {
@@ -484,13 +530,10 @@ export const storyCopy = {
   eyebrow: 'Three visits in 35 years',
   title: 'First, again, and last.',
   intro: [
-    'At noon on 11 July 1979, the Auckland weather reading was 12 degrees and cloudy, with a trough of low pressure drifting east over the Tasman Sea. That night she walked onto the Auckland Town Hall stage for the first time. New Zealand had never seen her live before.',
-    '"New Zealanders will get their first chance this week to say hello to Queen of Country, Dolly Parton," The Press wrote two days earlier. She arrived with an eight piece band, the Great Balls of Fire album still new, and a lime green sequinned catsuit that Rip It Up kept describing.',
-    'Aotearoa got her three times: a solo Town Hall night in 1979, Western Springs with Kenny Rogers in 1987, and two Vector Arena nights in 2014. The rest of the country got the songs.',
+    'It was a cold, cloudy Auckland winter night, and the Town Hall was full of people about to meet her for the first time. Dolly Parton was 33, five years past "Jolene", one year short of "9 to 5", and a long way from the one-room cabin she was born in.',
+    'She brought an eight piece band, the new album Great Balls of Fire, and a lime green sequinned catsuit that Rip It Up would not stop talking about. The papers had been telling Auckland she was coming for weeks.',
+    'Aotearoa got her three times in the end: a solo Town Hall night in 1979, Western Springs with Kenny Rogers in 1987, and two Vector Arena nights in 2014. The rest of the country kept the songs.',
   ],
-  weatherNote:
-    'Weather from The Press Noon Forecast, 11 July 1979: Auckland, 12 degrees, cloudy, light north-west wind.',
-  weatherSourceUrl: 'https://paperspast.natlib.govt.nz/newspapers/CHP19790711.2.181',
 } as const;
 
 export const visits: readonly Visit[] = [
@@ -963,5 +1006,9 @@ export const sourceLinks = [
   {
     label: 'Dollywood',
     url: 'https://www.dollywood.com/',
+  },
+  {
+    label: 'Internet Archive: KDUR Dolly Parton Cover Night, Durango, 2023',
+    url: 'https://archive.org/details/kdur_dollyparton_covers_night2023-02-11',
   },
 ] as const;

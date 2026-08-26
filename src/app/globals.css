@@ -12,8 +12,13 @@
   --color-blush: #e59ab8;
   --color-line: #e6c9a0;
 
+  --ease-heaven: cubic-bezier(0.32, 0.72, 0, 1);
+  --shadow-heaven-sm:
+    0 10px 24px -14px rgb(111 74 19 / 0.28), 0 4px 12px -8px rgb(90 60 100 / 0.16);
+  --shadow-heaven: 0 28px 70px -28px rgb(111 74 19 / 0.32), 0 12px 32px -14px rgb(90 60 100 / 0.2);
+
   --font-display: 'Cormorant Garamond', 'Georgia', serif;
-  --font-body: 'Helvetica Neue', 'Arial', system-ui, sans-serif;
+  --font-body: 'Outfit Variable', 'Outfit', system-ui, sans-serif;
 }
 
 :root {
@@ -27,6 +32,16 @@ body {
     radial-gradient(900px 520px at 8% 12%, rgba(255, 236, 190, 0.45), transparent 55%),
     radial-gradient(800px 560px at 55% 115%, rgba(190, 216, 250, 0.5), transparent 60%);
   background-attachment: fixed;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 :focus-visible {
@@ -82,19 +97,22 @@ body {
 
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(26px);
+  filter: blur(3px);
   transition:
-    opacity 0.7s ease,
-    transform 0.7s ease;
+    opacity 0.9s var(--ease-heaven),
+    transform 0.9s var(--ease-heaven),
+    filter 0.9s var(--ease-heaven);
 }
 
 .reveal-visible {
   opacity: 1;
   transform: translateY(0);
+  filter: blur(0);
 }
 
 .animate-rise {
-  animation: rise-in 0.8s ease both;
+  animation: rise-in 0.9s var(--ease-heaven) both;
 }
 
 .wind-marquee {
@@ -122,6 +140,7 @@ body {
   .reveal-visible {
     opacity: 1;
     transform: none;
+    filter: none;
     transition: none;
   }
   .animate-rise,
@@ -129,5 +148,14 @@ body {
   .animate-drift,
   .animate-twinkle {
     animation: none;
+  }
+}
+
+@layer base {
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    font-variant-numeric: tabular-nums;
   }
 }

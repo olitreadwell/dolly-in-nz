@@ -31,20 +31,24 @@ export function RecordsSection(): ReactNode {
               <ul className="mt-4 space-y-4">
                 {recordItems.map((item) => (
                   <li key={item.fact} className="border border-gold/20 bg-ink p-5">
-                    <p className="font-display text-lg font-semibold text-cream">{item.fact}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-moss">{item.detail}</p>
-                    {item.sourceLabel ? (
-                      <a
-                        href={item.sourceUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label={`${item.sourceLabel}, ${item.fact}`}
-                        className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-gold underline-offset-4 hover:underline focus-visible:underline"
-                      >
-                        {item.sourceLabel}
-                        <ArrowUpRightIcon size={12} weight="bold" aria-hidden="true" />
-                      </a>
-                    ) : null}
+                    <div className="rounded-[1.35rem] bg-white/40 p-1 ring-1 ring-gold/15">
+                      <div className="rounded-[1.05rem] bg-ink-2 p-5">
+                        <p className="font-display text-lg font-semibold text-cream">{item.fact}</p>
+                        <p className="mt-2 text-sm leading-relaxed text-moss">{item.detail}</p>
+                        {item.sourceLabel ? (
+                          <a
+                            href={item.sourceUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={`${item.sourceLabel}, ${item.fact}`}
+                            className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-gold underline-offset-4 hover:underline focus-visible:underline"
+                          >
+                            {item.sourceLabel}
+                            <ArrowUpRightIcon size={12} weight="bold" aria-hidden="true" />
+                          </a>
+                        ) : null}
+                      </div>
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -59,20 +63,24 @@ export function RecordsSection(): ReactNode {
               <ul className="mt-4 space-y-4">
                 {triviaItems.map((item) => (
                   <li key={item.fact} className="border border-gold/20 bg-ink p-5">
-                    <p className="font-display text-lg font-semibold text-cream">{item.fact}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-moss">{item.detail}</p>
-                    {item.sourceLabel ? (
-                      <a
-                        href={item.sourceUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label={`${item.sourceLabel}, ${item.fact}`}
-                        className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-gold underline-offset-4 hover:underline focus-visible:underline"
-                      >
-                        {item.sourceLabel}
-                        <ArrowUpRightIcon size={12} weight="bold" aria-hidden="true" />
-                      </a>
-                    ) : null}
+                    <div className="rounded-[1.35rem] bg-white/40 p-1 ring-1 ring-gold/15">
+                      <div className="rounded-[1.05rem] bg-ink-2 p-5">
+                        <p className="font-display text-lg font-semibold text-cream">{item.fact}</p>
+                        <p className="mt-2 text-sm leading-relaxed text-moss">{item.detail}</p>
+                        {item.sourceLabel ? (
+                          <a
+                            href={item.sourceUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={`${item.sourceLabel}, ${item.fact}`}
+                            className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-gold underline-offset-4 hover:underline focus-visible:underline"
+                          >
+                            {item.sourceLabel}
+                            <ArrowUpRightIcon size={12} weight="bold" aria-hidden="true" />
+                          </a>
+                        ) : null}
+                      </div>
+                    </div>
                   </li>
                 ))}
               </ul>

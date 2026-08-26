@@ -51,7 +51,7 @@ describe('HomePage', () => {
 
   it('renders the three visits with the weather opener', () => {
     render(<HomePage />);
-    expect(screen.getByText(/12 degrees and cloudy/)).toBeInTheDocument();
+    expect(screen.getByText(/cold, cloudy Auckland winter night/)).toBeInTheDocument();
     for (const visit of visits) {
       expect(screen.getByText(visit.title)).toBeInTheDocument();
       expect(screen.getByText(visit.line)).toBeInTheDocument();
