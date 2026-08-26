@@ -34,4 +34,61 @@ describe('MusicPlayer', () => {
     fireEvent.keyDown(window, { key: 'Escape' });
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
+
+  it('hides the panel but keeps the audio mounted so the music keeps playing', () => {
+    render(<MusicPlayer />);
+    fireEvent.click(screen.getByRole('button', { name: 'Listen to Dolly Parton' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Jolene' }));
+    const audio = screen.getByTitle('Jolene');
+
+    fireEvent.click(screen.getByRole('button', { name: 'Hide music player' }));
+
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    expect(screen.getByTitle('Jolene')).toBe(audio);
+    expect(screen.getByRole('group', { name: 'Now playing: Jolene' })).toBeInTheDocument();
+  });
+
+  it('stops the music and clears the player entirely', () => {
+    render(<MusicPlayer />);
+    fireEvent.click(screen.getByRole('button', { name: 'Listen to Dolly Parton' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Jolene' }));
+
+    fireEvent.click(screen.getByRole('button', { name: 'Stop music' }));
+
+    expect(screen.queryByTitle('Jolene')).not.toBeInTheDocument();
+    expect(screen.queryByRole('group', { name: 'Now playing: Jolene' })).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Listen to Dolly Parton' })).toBeInTheDocument();
+  });
+
+  it('advances to the next cover when the current one ends', () => {
+    render(<MusicPlayer />);
+    fireEvent.click(screen.getByRole('button', { name: 'Listen to Dolly Parton' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Jolene' }));
+
+    fireEvent.ended(screen.getByTitle('Jolene'));
+
+    expect(screen.getByTitle('9 to 5')).toBeInTheDocument();
+  });
+
+  it('loops back to the first cover after the last one', () => {
+    render(<MusicPlayer />);
+    fireEvent.click(screen.getByRole('button', { name: 'Listen to Dolly Parton' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Blue Smoke' }));
+
+    fireEvent.ended(screen.getByTitle('Blue Smoke'));
+
+    expect(screen.getByTitle('Jolene')).toBeInTheDocument();
+  });
+
+  it('skips forward and back through the playlist', () => {
+    render(<MusicPlayer />);
+    fireEvent.click(screen.getByRole('button', { name: 'Listen to Dolly Parton' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Jolene' }));
+
+    fireEvent.click(screen.getByRole('button', { name: 'Next song' }));
+    expect(screen.getByTitle('9 to 5')).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Previous song' }));
+    expect(screen.getByTitle('Jolene')).toBeInTheDocument();
+  });
 });

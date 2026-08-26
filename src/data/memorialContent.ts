@@ -39,6 +39,19 @@ export interface PressArticle {
   url: string;
 }
 
+export interface VisitSource {
+  label: string;
+  url: string;
+}
+
+export interface VisitImage {
+  src: string;
+  alt: string;
+  credit: string;
+  license: string;
+  sourceUrl: string;
+}
+
 export interface Visit {
   year: string;
   title: string;
@@ -48,6 +61,8 @@ export interface Visit {
   body: string[];
   sourceLabel: string;
   sourceUrl: string;
+  extraSources?: readonly VisitSource[];
+  image?: VisitImage;
 }
 
 export interface QuoteItem {
@@ -115,6 +130,16 @@ export const firstShowCopy = {
     '"New Zealanders will get their first chance this week to say hello to Queen of Country, Dolly Parton, when the blonde bombshell gives a concert in Auckland." The Press, 9 July 1979.',
     '"Dolly Parton is still coming and will perform with her band on July 11 in the Auckland Town Hall," wrote Rip It Up in June 1979. She was 33; "Jolene" was five years old and "9 to 5" was a year away.',
     'She came back with Kenny Rogers in 1987, and it took until 2014 before she headlined her own show here again.',
+  ],
+  sources: [
+    {
+      label: 'The Press, 9 July 1979 — read it on Papers Past',
+      url: 'https://paperspast.natlib.govt.nz/newspapers/CHP19790709.2.101.1',
+    },
+    {
+      label: 'Rip It Up, June 1979 — read it on Papers Past',
+      url: 'https://paperspast.natlib.govt.nz/periodicals/RIU19790601.2.8',
+    },
   ],
   cta: 'The setlist from that night',
   ctaHref:
@@ -266,15 +291,6 @@ export const pressArticles: readonly PressArticle[] = [
   },
   {
     outlet: 'Rip It Up',
-    date: '1 Jul 1979',
-    kind: 'article',
-    headline: 'Tours: the only major concert this month',
-    quote:
-      'The only major concert this month is Dolly Parton on July 11, Auckland Town Hall. Dolly\u2019s tour coincides with the release of her new album Great Balls of Fire.',
-    url: 'https://paperspast.natlib.govt.nz/periodicals/RIU19790701.2.9',
-  },
-  {
-    outlet: 'Rip It Up',
     date: '1 Aug 1979',
     kind: 'article',
     headline: 'Good Golly Ms Dolly',
@@ -292,14 +308,6 @@ export const pressArticles: readonly PressArticle[] = [
     url: 'https://paperspast.natlib.govt.nz/newspapers/CHP19810121.2.102.3',
   },
   {
-    outlet: 'Broadsheet',
-    date: '1 May 1981',
-    kind: 'photo',
-    headline: 'Dolly Parton, Lily Tomlin and Jane Fonda front the boss in 9 to 5',
-    quote: 'Auckland\u2019s feminist magazine covered the office workers who get even.',
-    url: 'https://paperspast.natlib.govt.nz/periodicals/BROADS19810501.2.23.3',
-  },
-  {
     outlet: 'The Press',
     date: '13 Aug 1984',
     kind: 'article',
@@ -307,15 +315,6 @@ export const pressArticles: readonly PressArticle[] = [
     quote:
       '\u201CThey certainly don\u2019t play me as some dumb blonde,\u201D Dolly Parton said while making the film. \u201CDoralee is an intelligent, caring person.\u201D',
     url: 'https://paperspast.natlib.govt.nz/newspapers/CHP19840813.2.81.4',
-  },
-  {
-    outlet: 'Eventfinda News',
-    date: '30 Oct 2013',
-    kind: 'article',
-    headline: 'Dolly Parton Auckland Concert Announced',
-    quote:
-      'Dolly Parton returns to New Zealand next year for the first time in over three decades.',
-    url: 'https://www.eventfinda.co.nz/news/2013/10/dolly-parton-announces-auckland-concert',
   },
   {
     outlet: 'NZ Herald',
@@ -327,64 +326,12 @@ export const pressArticles: readonly PressArticle[] = [
   },
   {
     outlet: 'NZ Herald',
-    date: '1 Dec 2013',
-    kind: 'article',
-    headline: 'Tour news: Dolly Parton to play second NZ show',
-    quote:
-      "Demand for tickets to the New Zealand leg of Dolly Parton's Blue Smoke World Tour has seen a second show announced in Auckland.",
-    url: 'https://www.nzherald.co.nz/entertainment/tour-news-dolly-parton-to-play-second-nz-show/VCEFUMLJQJOKUMWTEI6YOV7DHM/',
-  },
-  {
-    outlet: 'RNZ',
-    date: '5 Feb 2014',
-    kind: 'audio',
-    headline: "Nine to Noon: Marty Duda's artist of the week, Dolly Parton",
-    quote:
-      'Dolly Parton has a new album out entitled Blue Smoke, and is playing two shows at Auckland\u2019s Vector Arena on 7 and 8 February.',
-    url: 'https://www.rnz.co.nz/national/programmes/ninetonoon/audio/2584681/music-with-marty-duda',
-  },
-  {
-    outlet: 'NZ Herald',
     date: '7 Feb 2014',
     kind: 'article',
     headline: 'Review: Dolly Parton at Vector Arena',
     quote:
       'Dolly Parton was a master storyteller as well as musician. Her voice seemed as strong as ever at 68.',
     url: 'https://www.nzherald.co.nz/entertainment/review-dolly-parton-at-vector-arena/2YU7PCBZDG73EENKADT5BYCHWM/',
-  },
-  {
-    outlet: 'Stuff',
-    date: '8 Feb 2014',
-    kind: 'article',
-    headline: 'Dolly Parton dazzles Vector',
-    quote:
-      'Not many artists could get away with performing a medley of their greatest hits. But Dolly Parton had the packed Vector Arena audience eating out of her hand.',
-    url: 'https://www.stuff.co.nz/entertainment/music/gig-reviews/9700133/Dolly-Parton-dazzles-Vector',
-  },
-  {
-    outlet: 'Getty Images',
-    date: '7 Feb 2014',
-    kind: 'photo',
-    headline: 'Dolly Parton performs live for fans at Vector Arena',
-    quote: 'Editorial news photographs of her first Auckland night, held by Getty Images.',
-    url: 'https://www.gettyimages.com/detail/news-photo/dolly-parton-performs-live-for-fans-at-vector-arena-on-news-photo/467487951',
-  },
-  {
-    outlet: 'YouTube',
-    date: '8 Feb 2014',
-    kind: 'video',
-    headline: 'Jolene, live in Auckland, 8 Feb 2014',
-    quote:
-      'Dolly Parton: Live in Auckland, New Zealand on the Blue Smoke World Tour. Vector Arena, 8 February 2014.',
-    url: 'https://www.youtube.com/watch?v=YU9GAZsN4MA',
-  },
-  {
-    outlet: 'YouTube',
-    date: '8 Feb 2014',
-    kind: 'video',
-    headline: 'Little Sparrow, live in Auckland, 8 Feb 2014',
-    quote: 'Dolly Parton - Little Sparrow. Just beautiful! Vector Arena: February 2014.',
-    url: 'https://www.youtube.com/watch?v=_DIAJM6U6hI',
   },
   {
     outlet: 'The Coast',
@@ -402,23 +349,6 @@ export const pressArticles: readonly PressArticle[] = [
     quote:
       '"To all my friends and fans in New Zealand, here\'s to you. Now, you\'re a long way off, but you feel real close."',
     url: 'https://www.1news.co.nz/2026/08/26/singer-dolly-parton-loved-everything-about-new-zealand/',
-  },
-  {
-    outlet: 'ODT (RNZ)',
-    date: '26 Aug 2026',
-    kind: 'article',
-    headline: 'Dolly wanted a slice of home in NZ',
-    quote:
-      'It was 1987, and she was here with fellow country music star Kenny Rogers on the Islands in the Stream tour, Parton told New Zealand Women\u2019s Weekly in 2023.',
-    url: 'https://www.odt.co.nz/news/national/dolly-wanted-a-slice-of-home-in-nz-kbo67st0',
-  },
-  {
-    outlet: 'NZ Herald',
-    date: '26 Aug 2026',
-    kind: 'article',
-    headline: 'US country music legend Dolly Parton dies at 80',
-    quote: 'Country music star Dolly Parton has died at the age of 80.',
-    url: 'https://www.nzherald.co.nz/entertainment/us-country-music-legend-dolly-parton-dies-at-80/PITPEVSBYOBJOVR757XVQSESV4/',
   },
 ];
 
@@ -531,9 +461,9 @@ export const storyCopy = {
   eyebrow: 'Three visits in 35 years',
   title: 'First, again, and last.',
   intro: [
+    'Aotearoa got her three times in the end: a solo Town Hall night in 1979, Western Springs with Kenny Rogers in 1987, and two Vector Arena nights in 2014. The rest of the country kept the songs.',
     'It was a cold, cloudy Auckland winter night, and the Town Hall was full of people about to meet her for the first time. Dolly Parton was 33, five years past "Jolene", one year short of "9 to 5", and a long way from the one-room cabin she was born in.',
     'She brought an eight piece band, the new album Great Balls of Fire, and a lime green sequinned catsuit that Rip It Up would not stop talking about. The papers had been telling Auckland she was coming for weeks.',
-    'Aotearoa got her three times in the end: a solo Town Hall night in 1979, Western Springs with Kenny Rogers in 1987, and two Vector Arena nights in 2014. The rest of the country kept the songs.',
   ],
 } as const;
 
@@ -551,6 +481,23 @@ export const visits: readonly Visit[] = [
     sourceLabel: 'Setlist.fm: Dolly Parton, Auckland Town Hall 1979',
     sourceUrl:
       'https://www.setlist.fm/setlist/dolly-parton/1979/auckland-town-hall-auckland-new-zealand-6bc70e36.html',
+    extraSources: [
+      {
+        label: 'Rip It Up, June 1979 — read it on Papers Past',
+        url: 'https://paperspast.natlib.govt.nz/periodicals/RIU19790601.2.8',
+      },
+      {
+        label: '"Good Golly Ms Dolly", August 1979 — Papers Past',
+        url: 'https://paperspast.natlib.govt.nz/periodicals/RIU19790801.2.16',
+      },
+    ],
+    image: {
+      src: getMemorialImageUrl('dolly-1977.jpg'),
+      alt: 'Dolly Parton in a vintage portrait from the era of her first Auckland show',
+      credit: 'Photo by Alan Light',
+      license: 'CC BY 2.0',
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_2.jpg',
+    },
   },
   {
     year: '1987',
@@ -563,6 +510,19 @@ export const visits: readonly Visit[] = [
     ],
     sourceLabel: 'ODT (RNZ): Dolly wanted a slice of home in NZ',
     sourceUrl: 'https://www.odt.co.nz/news/national/dolly-wanted-a-slice-of-home-in-nz-kbo67st0',
+    extraSources: [
+      {
+        label: '"Dolly Parton charmed them all", Rip It Up, July 1987 — Papers Past',
+        url: 'https://paperspast.natlib.govt.nz/periodicals/RIU19870701.2.14.14',
+      },
+    ],
+    image: {
+      src: getMemorialImageUrl('dolly-rhinestone-1984.jpg'),
+      alt: 'Dolly Parton in rhinestones, photographed in the 1980s',
+      credit: 'Mel Melcon, Los Angeles Times',
+      license: 'CC BY 4.0',
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_and_Sylvester_Stallone.jpg',
+    },
   },
   {
     year: '2014',
@@ -576,6 +536,20 @@ export const visits: readonly Visit[] = [
     sourceLabel: 'NZ Herald: Dolly Parton to play second NZ show',
     sourceUrl:
       'https://www.nzherald.co.nz/entertainment/tour-news-dolly-parton-to-play-second-nz-show/VCEFUMLJQJOKUMWTEI6YOV7DHM/',
+    extraSources: [
+      {
+        label: 'NZ Herald: Review, Dolly Parton at Vector Arena (2014)',
+        url: 'https://www.nzherald.co.nz/entertainment/review-dolly-parton-at-vector-arena/2YU7PCBZDG73EENKADT5BYCHWM/',
+      },
+    ],
+    image: {
+      src: getMemorialImageUrl('dolly-2014-cologne.jpg'),
+      alt: 'Dolly Parton performing in a sparkling dress on the Blue Smoke tour',
+      credit: 'Josef J. Weidinger',
+      license: 'CC BY-SA 3.0',
+      sourceUrl:
+        'https://commons.wikimedia.org/wiki/File:Dolly_Parton_@_Lanxess-Arena_(K%C3%B6ln).jpg',
+    },
   },
 ];
 
@@ -777,6 +751,24 @@ export const lessonItems: readonly LessonItem[] = [
 
 export const outfitLooks: readonly OutfitLook[] = [
   {
+    src: getMemorialImageUrl('dolly-1959.jpg'),
+    alt: 'Dolly Parton at age 12 in a 1959 publicity photograph',
+    era: '1959',
+    caption: 'Age 12: her first publicity photo',
+    credit: 'Goldband Records',
+    license: 'Public domain',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_at_age_12_(1959).jpg',
+  },
+  {
+    src: getMemorialImageUrl('dolly-1970.jpg'),
+    alt: 'Dolly Parton in a 1970 RCA Records press photograph',
+    era: '1970',
+    caption: 'The bouffant years: RCA press photo',
+    credit: 'RCA Records',
+    license: 'Public domain',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_-_RCA_Press_Photo_(1970).jpg',
+  },
+  {
     src: getMemorialImageUrl('dolly-1974.jpg'),
     alt: 'Dolly Parton in a 1970s RCA publicity photo',
     era: '1970s',
@@ -784,6 +776,15 @@ export const outfitLooks: readonly OutfitLook[] = [
     credit: 'RCA Records',
     license: 'Public domain',
     sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_-_RCA_Press_Photo_(1974).jpg',
+  },
+  {
+    src: getMemorialImageUrl('dolly-1984-hawaii.jpg'),
+    alt: 'Dolly Parton in April 1984 at the Kahala Hilton in Hawaii',
+    era: '1984',
+    caption: 'Kahala Hilton, Hawaii, April 1984',
+    credit: 'Alan Light',
+    license: 'CC BY 2.0',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_(2401215313).jpg',
   },
   {
     src: getMemorialImageUrl('dolly-rhinestone-1984.jpg'),
@@ -795,6 +796,15 @@ export const outfitLooks: readonly OutfitLook[] = [
     sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_and_Sylvester_Stallone.jpg',
   },
   {
+    src: getMemorialImageUrl('dolly-1989-earrings.jpg'),
+    alt: 'Dolly Parton at a recording session in the late 1980s wearing square red earrings',
+    era: '1989',
+    caption: 'Recording session, square red earrings',
+    credit: 'Eagledj',
+    license: 'CC BY-SA 4.0',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_with_square_red_earrings.jpg',
+  },
+  {
     src: getMemorialImageUrl('dolly-2000.jpg'),
     alt: 'Dolly Parton at the National Press Club in 2000',
     era: '2000',
@@ -802,6 +812,15 @@ export const outfitLooks: readonly OutfitLook[] = [
     credit: 'Kingkongphoto',
     license: 'CC BY-SA 2.0',
     sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_2000.jpg',
+  },
+  {
+    src: getMemorialImageUrl('dolly-2011.jpg'),
+    alt: 'Dolly Parton at a press conference in Australia in 2011',
+    era: '2011',
+    caption: 'Press conference, Australia 2011',
+    credit: 'Eva Rinaldi',
+    license: 'CC BY-SA 2.0',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_2011.jpg',
   },
   {
     src: getMemorialImageUrl('dolly-2014-cologne.jpg'),
@@ -821,6 +840,15 @@ export const outfitLooks: readonly OutfitLook[] = [
     credit: 'Peabody Awards',
     license: 'CC BY-SA 3.0',
     sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_in_2022.jpg',
+  },
+  {
+    src: getMemorialImageUrl('dolly-2022-tmobile.jpg'),
+    alt: 'Dolly Parton in a 2022 T-Mobile campaign photograph',
+    era: '2022',
+    caption: 'T-Mobile campaign, 2022',
+    credit: 'chameleon post',
+    license: 'CC BY 3.0',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_for_T-Mobile_2022.jpg',
   },
 ];
 

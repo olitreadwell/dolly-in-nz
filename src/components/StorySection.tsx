@@ -31,6 +31,20 @@ export function StorySection(): ReactNode {
             <Reveal key={visit.year} className="h-full">
               <div className="h-full rounded-[2rem] bg-white/45 p-1.5 shadow-heaven-sm ring-1 ring-gold/15">
                 <article className="flex h-full flex-col rounded-[1.6rem] bg-ink p-7">
+                  {visit.image ? (
+                    <figure className="mb-6">
+                      <img
+                        src={visit.image.src}
+                        alt={visit.image.alt}
+                        loading="lazy"
+                        className="aspect-[4/3] w-full rounded-[1rem] object-cover"
+                      />
+                      <figcaption className="mt-2 flex items-center justify-between gap-2 text-[11px] text-moss">
+                        <span>{visit.image.credit}</span>
+                        <span>{visit.image.license}</span>
+                      </figcaption>
+                    </figure>
+                  ) : null}
                   <p className="font-display text-6xl font-semibold text-gold-soft">{visit.year}</p>
                   <h3 className="mt-4 font-display text-2xl font-semibold text-cream">
                     {visit.title}
@@ -44,16 +58,30 @@ export function StorySection(): ReactNode {
                       {paragraph}
                     </p>
                   ))}
-                  <a
-                    href={visit.sourceUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`${visit.sourceLabel}, ${visit.year} visit`}
-                    className="mt-auto inline-flex items-center gap-1 pt-6 text-sm font-semibold text-gold underline-offset-4 hover:underline focus-visible:underline"
-                  >
-                    {visit.sourceLabel}
-                    <ArrowUpRightIcon size={14} weight="bold" aria-hidden="true" />
-                  </a>
+                  <div className="mt-auto space-y-2 pt-6">
+                    <a
+                      href={visit.sourceUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${visit.sourceLabel}, ${visit.year} visit`}
+                      className="inline-flex items-center gap-1 text-sm font-semibold text-gold underline-offset-4 hover:underline focus-visible:underline"
+                    >
+                      {visit.sourceLabel}
+                      <ArrowUpRightIcon size={14} weight="bold" aria-hidden="true" />
+                    </a>
+                    {visit.extraSources?.map((source) => (
+                      <a
+                        key={source.url}
+                        href={source.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={source.label}
+                        className="block text-xs font-semibold text-gold underline-offset-4 hover:underline focus-visible:underline"
+                      >
+                        {source.label}
+                      </a>
+                    ))}
+                  </div>
                 </article>
               </div>
             </Reveal>

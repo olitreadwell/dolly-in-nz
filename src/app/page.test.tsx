@@ -10,7 +10,6 @@ import {
   outsideLinks,
   pressArticles,
   recordItems,
-  sourceLinks,
   timelineEntries,
   tributeCards,
   triviaItems,
@@ -55,6 +54,9 @@ describe('HomePage', () => {
     for (const visit of visits) {
       expect(screen.getByText(visit.title)).toBeInTheDocument();
       expect(screen.getByText(visit.line)).toBeInTheDocument();
+      if (visit.image !== undefined) {
+        expect(screen.getByAltText(visit.image.alt)).toBeInTheDocument();
+      }
     }
   });
 
@@ -82,7 +84,7 @@ describe('HomePage', () => {
     render(<HomePage />);
     for (const look of outfitLooks) {
       expect(screen.getByAltText(look.alt)).toBeInTheDocument();
-      expect(screen.getByText(`${look.credit}, ${look.license}`)).toBeInTheDocument();
+      expect(screen.getAllByText(`${look.credit}, ${look.license}`).length).toBeGreaterThan(0);
     }
   });
 
@@ -128,11 +130,12 @@ describe('HomePage', () => {
     }
   });
 
-  it('renders navigation and footer sources', () => {
+  it('renders navigation and a footer link to the sources page', () => {
     render(<HomePage />);
     expect(screen.getByRole('navigation')).toBeInTheDocument();
-    for (const link of sourceLinks) {
-      expect(screen.getAllByText(link.label).length).toBeGreaterThan(0);
-    }
+    expect(screen.getByRole('link', { name: 'The full source list' })).toHaveAttribute(
+      'href',
+      '/sources'
+    );
   });
 });

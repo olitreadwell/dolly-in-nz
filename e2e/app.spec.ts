@@ -33,3 +33,9 @@ test('music player opens without autoplay', async ({ page }) => {
   await page.getByRole('button', { name: 'Jolene' }).click();
   await expect(page.getByTitle('Jolene')).toBeVisible();
 });
+
+test('sources page lists every clipping', async ({ page }) => {
+  await page.goto('/sources');
+  await expect(page.getByRole('heading', { name: /Sources & reading list/ })).toBeVisible();
+  await expect(page.getByRole('link', { name: /Papers Past/ }).first()).toBeVisible();
+});

@@ -1,9 +1,9 @@
 import { HeartIcon } from '@phosphor-icons/react';
+import { ArrowUpRightIcon } from '@phosphor-icons/react';
 import type { ReactNode } from 'react';
-import { sourceLinks } from '@/data/memorialContent';
 
 /**
- * Footer with sources and image credits.
+ * Footer with a link to the full sources page and image credits.
  *
  * @returns The footer
  */
@@ -26,20 +26,17 @@ export function FooterSection(): ReactNode {
         </div>
         <div>
           <p className="text-[11px] uppercase tracking-[0.2em] text-gold">Sources</p>
-          <ul className="mt-3 space-y-2 text-sm">
-            {sourceLinks.map((link) => (
-              <li key={link.label}>
-                <a
-                  href={link.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-moss underline-offset-4 hover:text-gold hover:underline"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <p className="mt-3 text-sm leading-relaxed text-moss">
+            Every fact on this page is sourced, from Papers Past clippings to RNZ and the day the
+            obituaries ran.
+          </p>
+          <a
+            href="/sources"
+            className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-gold underline-offset-4 hover:underline focus-visible:underline"
+          >
+            The full source list
+            <ArrowUpRightIcon size={14} weight="bold" aria-hidden="true" />
+          </a>
         </div>
         <div>
           <p className="text-[11px] uppercase tracking-[0.2em] text-gold">Image credits</p>

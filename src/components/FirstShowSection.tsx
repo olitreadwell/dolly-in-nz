@@ -25,6 +25,22 @@ export function FirstShowSection(): ReactNode {
               {paragraph}
             </p>
           ))}
+          <ul className="mt-6 space-y-2">
+            {firstShowCopy.sources.map((source) => (
+              <li key={source.url}>
+                <a
+                  href={source.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={source.label}
+                  className="inline-flex items-center gap-1 text-sm font-semibold text-gold underline-offset-4 hover:underline focus-visible:underline"
+                >
+                  {source.label}
+                  <ArrowUpRightIcon size={12} weight="bold" aria-hidden="true" />
+                </a>
+              </li>
+            ))}
+          </ul>
         </Reveal>
         <Reveal className="relative">
           <div className="rounded-[2rem] bg-white/45 p-1.5 shadow-heaven ring-1 ring-gold/15">

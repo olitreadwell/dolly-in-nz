@@ -89,6 +89,14 @@ describe('memorialContent', () => {
     for (const visit of visits) {
       expect(visit.sourceUrl).toMatch(/^https:\/\//);
       expect(visit.body.length).toBeGreaterThan(0);
+      if (visit.image !== undefined) {
+        expect(visit.image.src).toMatch(/^\/images\//);
+        expect(visit.image.credit).not.toHaveLength(0);
+        expect(visit.image.sourceUrl).toMatch(/^https:\/\//);
+      }
+      for (const source of visit.extraSources ?? []) {
+        expect(source.url).toMatch(/^https:\/\//);
+      }
     }
   });
 
@@ -96,6 +104,24 @@ describe('memorialContent', () => {
     expect(storyCopy.intro.length).toBeGreaterThan(1);
     expect(storyCopy.intro[0]).not.toContain('Noon Forecast');
     expect(sourceLinks.map((link) => link.label).join(' ')).not.toMatch(/weather/i);
+  });
+
+  it('opens the story with the three-visit frame first', () => {
+    expect(storyCopy.intro[0]).toMatch(/1979/);
+    expect(storyCopy.intro[0]).toMatch(/1987/);
+    expect(storyCopy.intro[0]).toMatch(/2014/);
+  });
+
+  it('shows only one press article per year', () => {
+    const years = pressArticles.map((clip) => clip.date.split(' ').at(-1));
+    expect(new Set(years).size).toBe(years.length);
+  });
+
+  it('sources the first show quotes on Papers Past', () => {
+    for (const source of firstShowCopy.sources) {
+      expect(source.url).toMatch(/^https:\/\//);
+      expect(source.label).not.toHaveLength(0);
+    }
   });
 
   it('sources or labels every funny quote', () => {

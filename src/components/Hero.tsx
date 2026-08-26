@@ -14,7 +14,7 @@ export function Hero(): ReactNode {
       id="top"
       className="relative grid min-h-[100dvh] grid-cols-1 overflow-hidden lg:grid-cols-2"
     >
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0">
         <Cloud className="animate-drift absolute top-24 left-[-4rem] w-56 text-[#e8e3f4]/90 blur-[2px]" />
         <Cloud className="animate-drift absolute top-1/3 right-[-5rem] w-72 text-[#e2ecf8]/90 blur-[2px] [animation-delay:-7s]" />
         <Cloud className="animate-drift absolute bottom-24 left-1/4 w-48 text-[#f4e2ec]/90 blur-[2px] [animation-delay:-3s]" />
@@ -34,7 +34,7 @@ export function Hero(): ReactNode {
           className="animate-twinkle absolute bottom-1/4 right-[8%] text-gold-soft [animation-delay:2s]"
         />
       </div>
-      <div className="flex flex-col justify-center px-5 pt-28 pb-16 lg:px-16 lg:pt-0 lg:pb-0">
+      <div className="relative z-10 flex flex-col justify-center px-5 pt-28 pb-16 lg:px-16 lg:pt-0 lg:pb-0">
         <p className="animate-rise mb-6 text-[11px] uppercase tracking-[0.22em] text-gold">
           {heroCopy.eyebrow}
         </p>
@@ -54,7 +54,7 @@ export function Hero(): ReactNode {
           </span>
         </a>
       </div>
-      <div className="relative min-h-[50vh] lg:min-h-0">
+      <div className="relative z-10 min-h-[50vh] lg:min-h-0">
         <img
           src={getMemorialImageUrl('dolly-1977.jpg')}
           alt="Portrait of Dolly Parton"
