@@ -8,9 +8,9 @@ import '@fontsource/cormorant-garamond/600-italic.css';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Dolly Parton · A Wellington Memorial',
+  title: 'Dolly Parton · An Aotearoa Memorial',
   description:
-    'A Wellington memorial for Dolly Parton. Her songs, her 2014 Aotearoa tour, and the tributes New Zealand wrote for her.',
+    'An Aotearoa memorial for Dolly Parton. Her songs, her three visits to New Zealand, and the tributes this country wrote for her.',
 };
 
 /**

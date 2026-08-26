@@ -1,7 +1,7 @@
 # The Wind Keeps Her Songs
 
 Single-page memorial for Dolly Parton (19 January 1946 - 25 August 2026),
-built with a Wellington, New Zealand twist and deployed to GitHub Pages at
+built around her three Aotearoa visits and deployed to GitHub Pages at
 https://olitreadwell.github.io/the-wind-keeps-her-songs/.
 
 ## Run it
@@ -12,22 +12,41 @@ npm run dev        # http://localhost:3000/the-wind-keeps-her-songs
 npm run check      # full gate: format, lint, typecheck, tests, build, smoke, e2e
 ```
 
+## Deploying
+
+The static export ships to two hosts. The shared base path lives in
+`src/config/site.ts` and reads `NEXT_PUBLIC_BASE_PATH` with a default of
+`/the-wind-keeps-her-songs`.
+
+- GitHub Pages: `.github/workflows/pages.yml` builds `out/` and deploys on
+  every push to `main`. Uses the default base path.
+- Vercel: `vercel.json` limits automatic deployments to `main` and
+  `development`, and `autoJobCancelation` cancels queued or running builds
+  when a newer push lands. Add the environment variable
+  `NEXT_PUBLIC_BASE_PATH=` (empty string) in Project Settings, and Vercel
+  builds and serves the export at the root. No preview deployments happen
+  for other branches.
+
+Never set the variable locally; the local dev server and tests rely on the
+default.
+
 ## How it is built
 
 - Next.js static export (`output: 'export'`) with `basePath: '/the-wind-keeps-her-songs'`,
   deployed by `.github/workflows/pages.yml` to GitHub Pages.
-- Tailwind 4 theme: deep green ink, rhinestone gold accent, Cormorant
-  Garamond display serif. Dark page locked, `prefers-reduced-motion`
-  respected, sharp corners, no em-dashes.
+- Tailwind 4 theme: heavenly angel palette of ivory, blush pink, gold and
+  silver with drifting clouds and twinkling sparkles, Cormorant Garamond
+  display serif. Light page, `prefers-reduced-motion` respected, no
+  em-dashes.
 - All copy and sources live in `src/data/memorialContent.ts`. Every fact is
   sourced to RNZ, the NZ Herald archive, Wikipedia tour records, or the
   Dollywood Foundation. Nothing is invented.
 - Photographs are Wikimedia Commons files under their licenses. Credits
   appear inline in the gallery and in `public/images/ATTRIBUTION.md`.
 
-## Gathering Dolly-in-Wellington material
+## Gathering Dolly-in-Aotearoa material
 
-This repo is the home of the Dolly-in-Welly research. The public library
+This repo is the home of the Dolly-in-Aotearoa research. The public library
 `olitreadwell/nz-open-data-connectors` (NZ public data connectors) stays
 separate and can be used as a tool to search data.govt.nz, DigitalNZ and
 other NZ open data sources for Dolly Parton coverage. Sources found there

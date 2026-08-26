@@ -1,8 +1,9 @@
 import type { NextConfig } from 'next';
+import { siteBasePath } from './src/config/site';
 
 const nextConfig: NextConfig = {
   output: 'export',
-  basePath: '/the-wind-keeps-her-songs',
+  basePath: siteBasePath,
   reactStrictMode: true,
   allowedDevOrigins: ['127.0.0.1'],
 };

@@ -1,10 +1,12 @@
 /**
- * Curated content for the Dolly Parton Wellington memorial.
+ * Curated content for the Dolly Parton Aotearoa memorial.
  *
  * Every fact here is sourced. Nothing is invented: figures come from RNZ,
  * the NZ Herald archive, or Wikipedia tour records, and each entry carries
  * its source URL. See the footer of the page for the full source list.
  */
+
+import { imagesBasePath } from '@/config/site';
 
 export interface TimelineEntry {
   year: string;
@@ -39,29 +41,38 @@ export interface PressArticle {
   url: string;
 }
 
-const basePath = '/the-wind-keeps-her-songs';
-const imagesDir = `${basePath}/images`;
-
 /**
  * Absolute public URL for a memorial image under the GitHub Pages base path.
  *
- * Must stay in sync with `basePath` in next.config.ts so images resolve
- * regardless of whether the current URL ends in a trailing slash.
+ * Uses the shared base path from site config so images resolve on both
+ * GitHub Pages and Vercel.
  *
  * @param fileName - Image file name inside public/images
  * @returns The basePath-prefixed image URL
  */
 export function getMemorialImageUrl(fileName: string): string {
-  return `${imagesDir}/${fileName}`;
+  return `${imagesBasePath}/${fileName}`;
 }
 
 export const heroCopy = {
-  eyebrow: 'A Wellington memorial',
+  eyebrow: 'A memorial for Aotearoa',
   title: 'The wind keeps her songs.',
   subtitle:
-    'Dolly Parton sang to Aotearoa three times. Wellington never got a show. This is our wreath.',
+    'Dolly Parton came to Aotearoa three times. Auckland got the shows; we kept the songs. This is our wreath.',
   cta: 'Read her story',
   ctaHref: '#story',
+} as const;
+
+export const firstShowCopy = {
+  eyebrow: 'Aotearoa, 11 July 1979',
+  title: 'Her first solo show.',
+  body: [
+    'Dolly Parton was already a star, but she had never played New Zealand. On 11 July 1979 she walked out on the stage of the Auckland Town Hall alone, no duet partner and no opening act.',
+    'She was 33. "Jolene" was five years old and "9 to 5" was a year away. She came back with Kenny Rogers in 1987, and it took until 2014 before she headlined her own show here again.',
+  ],
+  cta: 'The setlist from that night',
+  ctaHref:
+    'https://www.setlist.fm/setlist/dolly-parton/1979/auckland-town-hall-auckland-new-zealand-6bc70e36.html',
 } as const;
 
 export const marqueeSongs = [
@@ -119,7 +130,7 @@ export const timelineEntries: readonly TimelineEntry[] = [
   {
     year: '2014',
     title: 'Blue Smoke in Aotearoa',
-    body: 'The album went on sale in New Zealand first, and she played two nights at Vector Arena, Auckland, on 7 and 8 February — her third visit to Aotearoa after shows in 1979 and 1987.',
+    body: 'The album went on sale in New Zealand first, and she played two nights at Vector Arena, Auckland, on 7 and 8 February, her third visit to Aotearoa after shows in 1979 and 1987.',
   },
   {
     year: '2019',
@@ -134,7 +145,7 @@ export const timelineEntries: readonly TimelineEntry[] = [
   {
     year: '2023',
     title: 'Inspired by Dolly, in Wellington',
-    body: 'The Glamaphones choir and the Hoot\u2019n\u2019Annies street brass band played her songs to a packed St Andrews on the Terrace on 13 May — the closest Wellington ever came to a Dolly show.',
+    body: 'The Glamaphones choir and the Hoot\u2019n\u2019Annies street brass band played her songs to a packed St Andrews on the Terrace on 13 May, the closest Wellington ever came to a Dolly show.',
   },
   {
     year: '2026',
@@ -143,13 +154,13 @@ export const timelineEntries: readonly TimelineEntry[] = [
   },
 ];
 
-export const wellingtonCopy = {
+export const aotearoaCopy = {
   eyebrow: 'Dolly in Aotearoa',
   title: 'Two nights in Aotearoa.',
   body: [
     '7 and 8 February 2014, Vector Arena, Auckland. The Blue Smoke tour touched down in Aotearoa twice, and the album went on sale here on 31 January, months ahead of the United States.',
-    'She had played Aotearoa before — Town Hall, Auckland in 1979, and a 50,000-strong stadium show with Kenny Rogers in 1987. Wellington never got a date. The wind made it up to her. It still carries her songs up Cuba Street, across the harbour and over Mt Victoria, the way it carries everything else.',
-    'Three years before she died, Wellington sang for her anyway. On 13 May 2023 the Glamaphones choir and the Hoot\u2019n\u2019Annies street brass band performed \u201CInspired by Dolly\u201D at St Andrews on the Terrace, a full night of her songs.',
+    'She had played here before: Town Hall, Auckland in 1979, and a 50,000-strong stadium show with Kenny Rogers in 1987. Auckland got her. The rest of Aotearoa kept the songs.',
+    'Three years before she died, Wellington finally sang for her. On 13 May 2023 the Glamaphones choir and the Hoot\u2019n\u2019Annies street brass band performed \u201CInspired by Dolly\u201D at St Andrews on the Terrace, a full night of her songs.',
   ],
 } as const;
 
@@ -192,7 +203,7 @@ export const tributeCards: readonly TributeCard[] = [
     outlet: 'RNZ',
     headline: 'Saying no to Elvis and other moments that shaped her life',
     quote:
-      'Parton met her husband at 18, on her first day in Nashville — he was interested in her, and not what she looked like.',
+      'Parton met her husband at 18, on her first day in Nashville. He was interested in her, and not what she looked like.',
     url: 'https://www.rnz.co.nz/life/music/saying-no-to-elvis-and-other-moments-that-shaped-dolly-parton-s-life',
   },
 ];
@@ -228,7 +239,7 @@ export const pressArticles: readonly PressArticle[] = [
     outlet: 'RNZ',
     date: '5 Feb 2014',
     kind: 'audio',
-    headline: "Nine to Noon: Marty Duda's artist of the week — Dolly Parton",
+    headline: "Nine to Noon: Marty Duda's artist of the week, Dolly Parton",
     quote:
       'Dolly Parton has a new album out entitled Blue Smoke, and is playing two shows at Auckland\u2019s Vector Arena on 7 and 8 February.',
     url: 'https://www.rnz.co.nz/national/programmes/ninetonoon/audio/2584681/music-with-marty-duda',
@@ -263,7 +274,7 @@ export const pressArticles: readonly PressArticle[] = [
     outlet: 'YouTube',
     date: '8 Feb 2014',
     kind: 'video',
-    headline: 'Jolene — live in Auckland, 8 Feb 2014',
+    headline: 'Jolene, live in Auckland, 8 Feb 2014',
     quote:
       'Dolly Parton: Live in Auckland, New Zealand on the Blue Smoke World Tour. Vector Arena, 8 February 2014.',
     url: 'https://www.youtube.com/watch?v=YU9GAZsN4MA',
@@ -272,7 +283,7 @@ export const pressArticles: readonly PressArticle[] = [
     outlet: 'YouTube',
     date: '8 Feb 2014',
     kind: 'video',
-    headline: 'Little Sparrow — live in Auckland, 8 Feb 2014',
+    headline: 'Little Sparrow, live in Auckland, 8 Feb 2014',
     quote: 'Dolly Parton - Little Sparrow. Just beautiful! Vector Arena: February 2014.',
     url: 'https://www.youtube.com/watch?v=_DIAJM6U6hI',
   },
@@ -306,11 +317,24 @@ export const booksCopy = {
   title: 'Three hundred million books.',
   body: [
     'Her Imagination Library mails one free book a month to enrolled children until they start school. More than 300 million books so far.',
-    'Wellington holds the National Library of Aotearoa. She would have loved that.',
+    'Aotearoa has its own National Library. She would have loved that.',
   ],
   cta: 'Read about the Imagination Library',
   ctaHref: 'https://dollyparton.com/imagination_library',
 } as const;
+
+export interface MusicSong {
+  title: string;
+  videoId: string;
+}
+
+export const musicSongs = [
+  { title: 'Jolene', videoId: 'Ixrje2rXLMA' },
+  { title: '9 to 5', videoId: 'UbxUSsFXYo4' },
+  { title: 'I Will Always Love You', videoId: 'lKsQR72HY0s' },
+  { title: 'Islands in the Stream', videoId: 'UaNGtgYwSsU' },
+  { title: 'Blue Smoke', videoId: '1Ws8ZHkJjA4' },
+] as const satisfies readonly MusicSong[];
 
 export const galleryImages: readonly GalleryImage[] = [
   {
@@ -350,11 +374,23 @@ export const galleryImages: readonly GalleryImage[] = [
 
 export const sourceLinks = [
   {
+    label: 'Setlist.fm: Dolly Parton, Auckland Town Hall 1979',
+    url: 'https://www.setlist.fm/setlist/dolly-parton/1979/auckland-town-hall-auckland-new-zealand-6bc70e36.html',
+  },
+  {
+    label: 'Setlist.fm: Kenny Rogers and Dolly Parton, 1987',
+    url: 'https://www.setlist.fm/setlist/kenny-rogers-and-dolly-parton/1987/western-springs-stadium-auckland-new-zealand-73c70e9d.html',
+  },
+  {
+    label: 'Setlist.fm: Dolly Parton, Vector Arena 2014',
+    url: 'https://www.setlist.fm/setlist/dolly-parton/2014/vector-arena-auckland-new-zealand-3c51df7.html',
+  },
+  {
     label: 'Eventfinda News: Dolly Parton Auckland Concert Announced (2013)',
     url: 'https://www.eventfinda.co.nz/news/2013/10/dolly-parton-announces-auckland-concert',
   },
   {
-    label: "NZ Herald: Tour news — Dolly Parton plans NZ 'homecoming' show (2013)",
+    label: "NZ Herald: Tour news, Dolly Parton plans NZ 'homecoming' show (2013)",
     url: 'https://www.nzherald.co.nz/entertainment/tour-news-dolly-parton-plans-nz-homecoming-show/XXBIXQN4HOTTEX6V4PDB4LY5KU/',
   },
   {
@@ -362,11 +398,11 @@ export const sourceLinks = [
     url: 'https://www.nzherald.co.nz/entertainment/tour-news-dolly-parton-to-play-second-nz-show/VCEFUMLJQJOKUMWTEI6YOV7DHM/',
   },
   {
-    label: 'RNZ Nine to Noon: artist of the week — Dolly Parton (audio, 2014)',
+    label: 'RNZ Nine to Noon: artist of the week, Dolly Parton (audio, 2014)',
     url: 'https://www.rnz.co.nz/national/programmes/ninetonoon/audio/2584681/music-with-marty-duda',
   },
   {
-    label: 'NZ Herald: Review — Dolly Parton at Vector Arena (2014)',
+    label: 'NZ Herald: Review, Dolly Parton at Vector Arena (2014)',
     url: 'https://www.nzherald.co.nz/entertainment/review-dolly-parton-at-vector-arena/2YU7PCBZDG73EENKADT5BYCHWM/',
   },
   {
@@ -390,11 +426,11 @@ export const sourceLinks = [
     url: 'https://www.nzherald.co.nz/entertainment/us-country-music-legend-dolly-parton-dies-at-80/PITPEVSBYOBJOVR757XVQSESV4/',
   },
   {
-    label: 'Kiwi Concert Date Archive: Dolly Parton — Town Hall, Auckland 1979',
+    label: 'Kiwi Concert Date Archive: Dolly Parton, Town Hall, Auckland 1979',
     url: 'https://kiwiconcertdatearchive.blogspot.com/2011/04/dolly-parton.html',
   },
   {
-    label: 'Kiwi Concert Date Archive: Kenny Rogers & Dolly Parton — 1987',
+    label: 'Kiwi Concert Date Archive: Kenny Rogers and Dolly Parton, 1987',
     url: 'https://kiwiconcertdatearchive.blogspot.com/2011/08/kenny-rogers-dolly-parton.html',
   },
   {

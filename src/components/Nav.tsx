@@ -4,7 +4,7 @@ import { ListIcon, XIcon } from '@phosphor-icons/react';
 import { useState } from 'react';
 import type { ReactNode } from 'react';
 
-const navItems = ['Story', 'Wellington', 'Press', 'Tributes', 'Books', 'Gallery'] as const;
+const navItems = ['Story', 'Aotearoa', 'Press', 'Tributes', 'Books', 'Gallery'] as const;
 
 /**
  * Sticky page navigation. Inline links on desktop, collapsible hamburger

@@ -1,30 +1,37 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-ink: #0d1410;
-  --color-ink-2: #111b15;
-  --color-ink-3: #16241c;
-  --color-gold: #d8ab52;
-  --color-gold-soft: #ecd296;
-  --color-cream: #f4ebda;
-  --color-moss: #a4b8a6;
-  --color-line: #d8ab52;
+  --color-ink: #fffaf5;
+  --color-ink-2: #fdeff3;
+  --color-ink-3: #eef3fb;
+  --color-gold: #b2802a;
+  --color-gold-soft: #c7954a;
+  --color-cream: #4a364e;
+  --color-moss: #8d6b84;
+  --color-plum: #3a2a41;
+  --color-blush: #e59ab8;
+  --color-line: #e6c9a0;
 
   --font-display: 'Cormorant Garamond', 'Georgia', serif;
   --font-body: 'Helvetica Neue', 'Arial', system-ui, sans-serif;
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
   @apply bg-ink text-cream font-body antialiased;
+  background-image:
+    radial-gradient(1100px 560px at 85% -10%, rgba(248, 205, 225, 0.55), transparent 60%),
+    radial-gradient(900px 520px at 8% 12%, rgba(255, 236, 190, 0.45), transparent 55%),
+    radial-gradient(800px 560px at 55% 115%, rgba(190, 216, 250, 0.5), transparent 60%);
+  background-attachment: fixed;
 }
 
 ::selection {
   background-color: var(--color-gold);
-  color: var(--color-ink);
+  color: var(--color-plum);
 }
 
 @keyframes rise-in {
@@ -44,6 +51,27 @@ body {
   }
   to {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes cloud-drift {
+  from {
+    transform: translateX(-24px);
+  }
+  to {
+    transform: translateX(24px);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -68,6 +96,14 @@ body {
   animation: wind-marquee 40s linear infinite;
 }
 
+.animate-drift {
+  animation: cloud-drift 14s ease-in-out infinite alternate;
+}
+
+.animate-twinkle {
+  animation: twinkle 3.2s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -79,7 +115,9 @@ body {
     transition: none;
   }
   .animate-rise,
-  .wind-marquee {
+  .wind-marquee,
+  .animate-drift,
+  .animate-twinkle {
     animation: none;
   }
 }

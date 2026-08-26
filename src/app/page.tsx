@@ -1,7 +1,7 @@
 import { App } from '@/App';
 
 /**
- * Homepage: the Dolly Parton Wellington memorial.
+ * Homepage: the Dolly Parton Aotearoa memorial.
  *
  * @returns The memorial page
  */

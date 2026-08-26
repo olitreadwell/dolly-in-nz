@@ -2,7 +2,9 @@ import { describe, expect, it } from 'vitest';
 import {
   galleryImages,
   getMemorialImageUrl,
+  firstShowCopy,
   heroCopy,
+  musicSongs,
   pressArticles,
   sourceLinks,
   timelineEntries,
@@ -59,5 +61,17 @@ describe('memorialContent', () => {
     for (const link of sourceLinks) {
       expect(link.url).toMatch(/^https:\/\//);
     }
+  });
+
+  it('gives every music song a youtube video id', () => {
+    for (const song of musicSongs) {
+      expect(song.videoId).toMatch(/^[0-9A-Za-z_-]{11}$/);
+      expect(song.title).not.toHaveLength(0);
+    }
+  });
+
+  it('sources the first show copy', () => {
+    expect(firstShowCopy.ctaHref).toMatch(/^https:\/\//);
+    expect(firstShowCopy.body.length).toBeGreaterThan(0);
   });
 });

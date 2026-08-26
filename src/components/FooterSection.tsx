@@ -16,7 +16,7 @@ export function FooterSection(): ReactNode {
             Dolly <em className="text-gold-soft">Parton</em>
           </p>
           <p className="mt-3 flex items-center gap-2 text-sm text-moss">
-            Made in Wellington, carried by the wind.
+            Made in Aotearoa, carried by the wind.
             <HeartIcon size={14} weight="fill" className="text-gold" aria-hidden="true" />
           </p>
           <p className="mt-6 text-sm text-moss">

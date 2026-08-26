@@ -7,16 +7,16 @@ describe('Nav', () => {
     render(<Nav />);
     const toggle = screen.getByRole('button', { name: 'Open menu' });
     expect(toggle).toHaveAttribute('aria-expanded', 'false');
-    expect(screen.getAllByRole('link', { name: 'Wellington' })).toHaveLength(1);
+    expect(screen.getAllByRole('link', { name: 'Aotearoa' })).toHaveLength(1);
 
     fireEvent.click(toggle);
     expect(screen.getByRole('button', { name: 'Close menu' })).toHaveAttribute(
       'aria-expanded',
       'true'
     );
-    expect(screen.getAllByRole('link', { name: 'Wellington' })).toHaveLength(2);
+    expect(screen.getAllByRole('link', { name: 'Aotearoa' })).toHaveLength(2);
 
-    fireEvent.click(screen.getAllByRole('link', { name: 'Wellington' })[1]);
+    fireEvent.click(screen.getAllByRole('link', { name: 'Aotearoa' })[1]);
     expect(screen.getByRole('button', { name: 'Open menu' })).toHaveAttribute(
       'aria-expanded',
       'false'

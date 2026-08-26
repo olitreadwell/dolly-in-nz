@@ -1,8 +1,9 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import HomePage from '@/app/page';
 import {
   galleryImages,
+  musicSongs,
   pressArticles,
   sourceLinks,
   timelineEntries,
@@ -20,16 +21,31 @@ describe('HomePage', () => {
     render(<HomePage />);
     for (const entry of timelineEntries) {
       expect(screen.getByText(entry.title)).toBeInTheDocument();
-      expect(screen.getByText(entry.year)).toBeInTheDocument();
+      expect(screen.getAllByText(entry.year).length).toBeGreaterThan(0);
     }
   });
 
-  it('renders the Wellington twist section', () => {
+  it('leads with her first solo show', () => {
+    render(<HomePage />);
+    expect(screen.getByRole('heading', { name: 'Her first solo show.' })).toBeInTheDocument();
+    expect(screen.getByText('Aotearoa, 11 July 1979')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'The setlist from that night' })).toBeInTheDocument();
+  });
+
+  it('renders the Aotearoa section', () => {
     render(<HomePage />);
     expect(screen.getByText('Two nights in Aotearoa.')).toBeInTheDocument();
     expect(screen.getByText(/7 and 8 February 2014, Vector Arena/)).toBeInTheDocument();
     expect(screen.getByText(/a full night of her songs/)).toBeInTheDocument();
     expect(screen.getByText(/13 May 2023/)).toBeInTheDocument();
+  });
+
+  it('renders the listen control with every song', () => {
+    render(<HomePage />);
+    fireEvent.click(screen.getByRole('button', { name: 'Listen to Dolly Parton' }));
+    for (const song of musicSongs) {
+      expect(screen.getByRole('button', { name: song.title })).toBeInTheDocument();
+    }
   });
 
   it('renders every New Zealand press article', () => {
