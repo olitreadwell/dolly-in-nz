@@ -26,7 +26,7 @@ describe('HomePage', () => {
   it('renders every timeline entry', () => {
     render(<HomePage />);
     for (const entry of timelineEntries) {
-      expect(screen.getByText(entry.title)).toBeInTheDocument();
+      expect(screen.getAllByText(entry.title).length).toBeGreaterThan(0);
       expect(screen.getAllByText(entry.year).length).toBeGreaterThan(0);
     }
   });

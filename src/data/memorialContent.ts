@@ -184,6 +184,11 @@ export const timelineEntries: readonly TimelineEntry[] = [
     body: 'The film and the title song, an anthem for women and workers that topped the charts.',
   },
   {
+    year: '1986',
+    title: 'Dollywood',
+    body: 'She bought the ailing Silver Dollar City park in 1986, renamed it after herself, and turned it into Sevier County\u2019s largest employer \u2014 around 23,000 jobs at its peak.',
+  },
+  {
     year: '1987',
     title: 'Western Springs, with Kenny Rogers',
     body: 'Back with Kenny Rogers, Islands in the Stream still hot, she played Western Springs Stadium in Auckland on 1 March 1987, the visit she later told New Zealand Women\u2019s Weekly she loved the most.',
@@ -436,21 +441,12 @@ export const galleryImages: readonly GalleryImage[] = [
     sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_-_RCA_Press_Photo_(1970).jpg',
   },
   {
-    src: getMemorialImageUrl('liseberg-2010.jpg'),
-    alt: 'Dolly Parton accepting the Liseberg Applause Award in 2010',
-    caption: 'Accepting the Liseberg Applause Award, 2010',
-    credit: 'Photo by Curtis Hilbun',
-    license: 'CC BY 3.0',
-    sourceUrl:
-      'https://commons.wikimedia.org/wiki/File:Dolly_Parton_accepting_Liseberg_Applause_Award_2010_portrait.jpg',
-  },
-  {
-    src: getMemorialImageUrl('dolly-2023.jpg'),
-    alt: 'Dolly Parton in 2023',
-    caption: 'Dolly Parton, 2023',
-    credit: 'Photo by KIND MUSIC GROUP',
-    license: 'CC BY 3.0',
-    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_2023.jpg',
+    src: getMemorialImageUrl('dolly-1984-hawaii.jpg'),
+    alt: 'Dolly Parton at the Kahala Hilton in Hawaii in 1984',
+    caption: 'Kahala Hilton, Hawaii, 1984',
+    credit: 'Alan Light',
+    license: 'CC BY 2.0',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_(210610108).jpg',
   },
   {
     src: getMemorialImageUrl('kennedy-2006.jpg'),
@@ -459,6 +455,41 @@ export const galleryImages: readonly GalleryImage[] = [
     credit: 'White House photo by Eric Draper',
     license: 'Public domain',
     sourceUrl: 'https://commons.wikimedia.org/wiki/File:2006_Kennedy_Center_honorees_(cropped).jpg',
+  },
+  {
+    src: getMemorialImageUrl('liseberg-2010.jpg'),
+    alt: 'Dolly Parton accepting the Liseberg Applause Award in 2010',
+    caption: 'Accepting the Liseberg Applause Award, 2010',
+    credit: 'Curtis Hilbun',
+    license: 'CC BY 3.0',
+    sourceUrl:
+      'https://commons.wikimedia.org/wiki/File:Dolly_Parton_accepting_Liseberg_Applause_Award_2010_portrait.jpg',
+  },
+  {
+    src: getMemorialImageUrl('dolly-wolftrap-2011.jpg'),
+    alt: 'Dolly Parton on stage at Wolf Trap in 2011',
+    caption: 'On stage at Wolf Trap, 2011',
+    credit: 'Leeann Cafferata',
+    license: 'CC BY 2.0',
+    sourceUrl:
+      'https://commons.wikimedia.org/wiki/File:Dolly_Parton_at_Wolf_Trap,_2011_IMG_6250_(5997834442).jpg',
+  },
+  {
+    src: getMemorialImageUrl('dolly-2014-knoxville.jpg'),
+    alt: 'Dolly Parton on stage during the Blue Smoke tour in 2014',
+    caption: 'Blue Smoke tour, 2014',
+    credit: 'Kristopher Harris',
+    license: 'CC BY 2.0',
+    sourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Dolly_Parton_at_'Blue_Smoke_World_Tour'_in_Knoxville.jpg",
+  },
+  {
+    src: getMemorialImageUrl('dolly-2023.jpg'),
+    alt: 'Dolly Parton in 2023',
+    caption: 'Dolly Parton, 2023',
+    credit: 'KIND MUSIC GROUP',
+    license: 'CC BY 3.0',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_2023.jpg',
   },
 ];
 
@@ -645,6 +676,14 @@ export const recordItems: readonly RecordItem[] = [
 ];
 
 export const triviaItems: readonly RecordItem[] = [
+  {
+    fact: 'Top 10 country hits in six straight decades',
+    detail:
+      'From 1967 to 2020 she placed a song in the country top 10 in every decade, 1960s through 2010s. Guinness World Records verified her six decades of top 20 country hits in 2018.',
+    sourceLabel: 'TODAY, December 2021',
+    sourceUrl:
+      'https://www.today.com/popculture/dolly-parton-breaks-3-guinness-world-records-see-list-t243473',
+  },
   {
     fact: '"9 to 5" came from her nails',
     detail:

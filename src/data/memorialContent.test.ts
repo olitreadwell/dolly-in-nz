@@ -30,6 +30,7 @@ describe('memorialContent', () => {
     const years = timelineEntries.map((entry) => Number(entry.year));
     expect(years).toEqual([...years].sort((a, b) => a - b));
     expect(timelineEntries.some((entry) => entry.title === 'The Imagination Library')).toBe(true);
+    expect(timelineEntries.some((entry) => entry.title === 'Dollywood')).toBe(true);
   });
 
   it('gives every tribute card a source url and a quote', () => {
@@ -147,6 +148,10 @@ describe('memorialContent', () => {
       expect(lesson.title.length).toBeGreaterThan(0);
       expect(lesson.body.length).toBeGreaterThan(0);
     }
+  });
+
+  it('includes the six-decade hit streak fact', () => {
+    expect(triviaItems.some((item) => item.fact.includes('six straight decades'))).toBe(true);
   });
 
   it('links every look to its commons source', () => {

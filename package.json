@@ -22,6 +22,7 @@
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "smoke": "bash scripts/smoke.sh",
+    "images:sync": "node scripts/sync-commons-images.mjs",
     "check:links": "node scripts/check-internal-links.mjs",
     "audit": "npm audit",
     "test:setup": "node --test scripts/setup.test.mjs",
