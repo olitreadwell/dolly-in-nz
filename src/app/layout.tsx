@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: 'Dolly in NZ · A Memorial',
   description:
     'An Aotearoa memorial for Dolly Parton. Her three visits to New Zealand, her songs, and the tributes this country wrote for her.',
+  icons: { icon: '/favicon.svg' },
 };
 
 /**
