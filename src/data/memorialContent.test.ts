@@ -95,6 +95,7 @@ describe('memorialContent', () => {
   it('keeps the story opener short and weather-light', () => {
     expect(storyCopy.intro.length).toBeGreaterThan(1);
     expect(storyCopy.intro[0]).not.toContain('Noon Forecast');
+    expect(sourceLinks.map((link) => link.label).join(' ')).not.toMatch(/weather/i);
   });
 
   it('sources or labels every funny quote', () => {

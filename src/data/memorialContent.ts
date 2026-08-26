@@ -399,7 +399,8 @@ export const pressArticles: readonly PressArticle[] = [
     date: '26 Aug 2026',
     kind: 'article',
     headline: "Singer Dolly Parton 'loved everything about' New Zealand",
-    quote: '"We loved the people, we loved the food... we just loved everything about it."',
+    quote:
+      '"To all my friends and fans in New Zealand, here\'s to you. Now, you\'re a long way off, but you feel real close."',
     url: 'https://www.1news.co.nz/2026/08/26/singer-dolly-parton-loved-everything-about-new-zealand/',
   },
   {
@@ -850,14 +851,6 @@ export const sourceLinks = [
   {
     label: 'The Press (Papers Past): "Hello, Dolly", 9 July 1979',
     url: 'https://paperspast.natlib.govt.nz/newspapers/CHP19790709.2.101.1',
-  },
-  {
-    label: 'The Press (Papers Past): Noon Forecast, 11 July 1979 (Auckland weather)',
-    url: 'https://paperspast.natlib.govt.nz/newspapers/CHP19790711.2.181',
-  },
-  {
-    label: 'The Press (Papers Past): Noon Forecast, 12 July 1979 (Auckland weather)',
-    url: 'https://paperspast.natlib.govt.nz/newspapers/CHP19790712.2.222',
   },
   {
     label: 'Rip It Up (Papers Past): "Tours" — 11 July, Auckland Town Hall, June 1979',

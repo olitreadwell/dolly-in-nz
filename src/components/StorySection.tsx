@@ -5,7 +5,7 @@ import { Reveal } from '@/components/Reveal';
 
 /**
  * The three New Zealand visits told in order, opening with the sourced
- * weather reading from the night of her first Auckland show.
+ * atmospheric opener from the night of her first Auckland show.
  *
  * @returns The story section
  */

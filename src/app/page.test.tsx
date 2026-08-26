@@ -49,7 +49,7 @@ describe('HomePage', () => {
     expect(screen.getByText(/13 May 2023/)).toBeInTheDocument();
   });
 
-  it('renders the three visits with the weather opener', () => {
+  it('renders the three visits with the story opener', () => {
     render(<HomePage />);
     expect(screen.getByText(/cold, cloudy Auckland winter night/)).toBeInTheDocument();
     for (const visit of visits) {
