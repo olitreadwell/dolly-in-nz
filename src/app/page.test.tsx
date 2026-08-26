@@ -13,7 +13,7 @@ import {
 describe('HomePage', () => {
   it('renders the hero with title, subtitle and CTA', () => {
     render(<HomePage />);
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('The wind keeps her songs');
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Dolly in New Zealand');
     expect(screen.getByText('Read her story')).toBeInTheDocument();
   });
 

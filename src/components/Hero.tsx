@@ -39,7 +39,7 @@ export function Hero(): ReactNode {
           {heroCopy.eyebrow}
         </p>
         <h1 className="animate-rise font-display text-6xl leading-[0.95] font-semibold tracking-tight md:text-7xl">
-          The wind keeps <em className="text-gold-soft">her songs.</em>
+          {heroCopy.titlePre} <em className="text-gold-soft">{heroCopy.titleEm}</em>
         </h1>
         <p className="animate-rise mt-6 max-w-[42ch] text-lg leading-relaxed text-moss">
           {heroCopy.subtitle}

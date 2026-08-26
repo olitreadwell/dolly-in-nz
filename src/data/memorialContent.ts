@@ -6,8 +6,6 @@
  * its source URL. See the footer of the page for the full source list.
  */
 
-import { imagesBasePath } from '@/config/site';
-
 export interface TimelineEntry {
   year: string;
   title: string;
@@ -42,23 +40,22 @@ export interface PressArticle {
 }
 
 /**
- * Absolute public URL for a memorial image under the GitHub Pages base path.
- *
- * Uses the shared base path from site config so images resolve on both
- * GitHub Pages and Vercel.
+ * Absolute public URL for a memorial image. Vercel serves the export at the
+ * root, so images live at /images.
  *
  * @param fileName - Image file name inside public/images
- * @returns The basePath-prefixed image URL
+ * @returns The public image URL
  */
 export function getMemorialImageUrl(fileName: string): string {
-  return `${imagesBasePath}/${fileName}`;
+  return `/images/${fileName}`;
 }
 
 export const heroCopy = {
   eyebrow: 'A memorial for Aotearoa',
-  title: 'The wind keeps her songs.',
+  titlePre: 'Dolly in',
+  titleEm: 'New Zealand.',
   subtitle:
-    'Dolly Parton came to Aotearoa three times. Auckland got the shows; we kept the songs. This is our wreath.',
+    'The wind keeps her songs: three visits, two Auckland shows, and a country that never let her go.',
   cta: 'Read her story',
   ctaHref: '#story',
 } as const;
@@ -67,8 +64,9 @@ export const firstShowCopy = {
   eyebrow: 'Aotearoa, 11 July 1979',
   title: 'Her first solo show.',
   body: [
-    'Dolly Parton was already a star, but she had never played New Zealand. On 11 July 1979 she walked out on the stage of the Auckland Town Hall alone, no duet partner and no opening act.',
-    'She was 33. "Jolene" was five years old and "9 to 5" was a year away. She came back with Kenny Rogers in 1987, and it took until 2014 before she headlined her own show here again.',
+    '"New Zealanders will get their first chance this week to say hello to Queen of Country, Dolly Parton, when the blonde bombshell gives a concert in Auckland." The Press, 9 July 1979.',
+    '"Dolly Parton is still coming and will perform with her band on July 11 in the Auckland Town Hall," wrote Rip It Up in June 1979. She was 33; "Jolene" was five years old and "9 to 5" was a year away.',
+    'She came back with Kenny Rogers in 1987, and it took until 2014 before she headlined her own show here again.',
   ],
   cta: 'The setlist from that night',
   ctaHref:
@@ -104,8 +102,8 @@ export const timelineEntries: readonly TimelineEntry[] = [
   },
   {
     year: '1979',
-    title: 'First night in Aotearoa',
-    body: 'Her first New Zealand concert: 11 July 1979 at the Auckland Town Hall, a decade before the biggest hits went global.',
+    title: 'Hello, Dolly',
+    body: '"New Zealanders will get their first chance this week to say hello to Queen of Country, Dolly Parton." The Press, 9 July 1979. She played the Auckland Town Hall on 11 July, her first concert in Aotearoa.',
   },
   {
     year: '1980',
@@ -115,7 +113,7 @@ export const timelineEntries: readonly TimelineEntry[] = [
   {
     year: '1987',
     title: 'Fifty thousand, with Kenny Rogers',
-    body: 'Back with Kenny Rogers, Islands in the Stream still hot, she played to a 50,000-strong Auckland crowd alongside Suzanne Prentice and Billy T. James.',
+    body: 'Back with Kenny Rogers, Islands in the Stream still hot, she played to a 50,000-strong crowd at Mt Smart Stadium, Auckland, alongside Suzanne Prentice and Billy T. James.',
   },
   {
     year: '1992',
@@ -159,7 +157,7 @@ export const aotearoaCopy = {
   title: 'Two nights in Aotearoa.',
   body: [
     '7 and 8 February 2014, Vector Arena, Auckland. The Blue Smoke tour touched down in Aotearoa twice, and the album went on sale here on 31 January, months ahead of the United States.',
-    'She had played here before: Town Hall, Auckland in 1979, and a 50,000-strong stadium show with Kenny Rogers in 1987. Auckland got her. The rest of Aotearoa kept the songs.',
+    'She had played here before: Town Hall, Auckland in 1979, and a 50,000-strong Mt Smart Stadium show with Kenny Rogers in 1987. Auckland got her. The rest of Aotearoa kept the songs.',
     'Three years before she died, Wellington finally sang for her. On 13 May 2023 the Glamaphones choir and the Hoot\u2019n\u2019Annies street brass band performed \u201CInspired by Dolly\u201D at St Andrews on the Terrace, a full night of her songs.',
   ],
 } as const;
@@ -304,6 +302,15 @@ export const pressArticles: readonly PressArticle[] = [
     url: 'https://www.1news.co.nz/2026/08/26/singer-dolly-parton-loved-everything-about-new-zealand/',
   },
   {
+    outlet: 'ODT (RNZ)',
+    date: '26 Aug 2026',
+    kind: 'article',
+    headline: 'Dolly wanted a slice of home in NZ',
+    quote:
+      'It was 1987, and she was here with fellow country music star Kenny Rogers on the Islands in the Stream tour, Parton told New Zealand Women\u2019s Weekly in 2023.',
+    url: 'https://www.odt.co.nz/news/national/dolly-wanted-a-slice-of-home-in-nz-kbo67st0',
+  },
+  {
     outlet: 'NZ Herald',
     date: '26 Aug 2026',
     kind: 'article',
@@ -390,6 +397,26 @@ export const sourceLinks = [
     url: 'https://www.eventfinda.co.nz/news/2013/10/dolly-parton-announces-auckland-concert',
   },
   {
+    label: 'The Press (Papers Past): "Hello, Dolly", 9 July 1979',
+    url: 'https://paperspast.natlib.govt.nz/newspapers/CHP19790709.2.101.1',
+  },
+  {
+    label: 'Rip It Up (Papers Past): "Good Golly Ms Dolly", August 1979',
+    url: 'https://paperspast.natlib.govt.nz/periodicals/RIU19790801.2.16',
+  },
+  {
+    label: 'Rip It Up (Papers Past): "Tours" — 11 July, Auckland Town Hall, June 1979',
+    url: 'https://paperspast.natlib.govt.nz/periodicals/RIU19790601.2.8',
+  },
+  {
+    label: 'Rip It Up (Papers Past): "A Living Dolly" album review, October 1977',
+    url: 'https://paperspast.natlib.govt.nz/periodicals/RIU19771001.2.32',
+  },
+  {
+    label: 'Rip It Up (Papers Past): "Dolly Parton charmed them all", July 1987',
+    url: 'https://paperspast.natlib.govt.nz/periodicals/RIU19870701.2.14.14',
+  },
+  {
     label: "NZ Herald: Tour news, Dolly Parton plans NZ 'homecoming' show (2013)",
     url: 'https://www.nzherald.co.nz/entertainment/tour-news-dolly-parton-plans-nz-homecoming-show/XXBIXQN4HOTTEX6V4PDB4LY5KU/',
   },
@@ -420,6 +447,10 @@ export const sourceLinks = [
   {
     label: "1News: Singer Dolly Parton 'loved everything about' New Zealand (2026)",
     url: 'https://www.1news.co.nz/2026/08/26/singer-dolly-parton-loved-everything-about-new-zealand/',
+  },
+  {
+    label: 'ODT (RNZ): Dolly wanted a slice of home in NZ (2026)',
+    url: 'https://www.odt.co.nz/news/national/dolly-wanted-a-slice-of-home-in-nz-kbo67st0',
   },
   {
     label: 'NZ Herald: US country music legend Dolly Parton dies at 80 (2026)',

@@ -13,7 +13,7 @@ export function FooterSection(): ReactNode {
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-[2fr_1fr_1fr]">
         <div>
           <p className="font-display text-2xl font-semibold">
-            Dolly <em className="text-gold-soft">Parton</em>
+            Dolly in <em className="text-gold-soft">New Zealand</em>
           </p>
           <p className="mt-3 flex items-center gap-2 text-sm text-moss">
             Made in Aotearoa, carried by the wind.

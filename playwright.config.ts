@@ -18,7 +18,7 @@ export default defineConfig({
   },
   webServer: {
     command: `npm run dev -- -p ${port}`,
-    url: `http://127.0.0.1:${port}/the-wind-keeps-her-songs/`,
+    url: `http://127.0.0.1:${port}/`,
     reuseExistingServer: false,
     timeout: 120_000,
   },

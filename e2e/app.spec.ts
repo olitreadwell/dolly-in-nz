@@ -1,8 +1,8 @@
 import { expect, test } from '@playwright/test';
 
 test('homepage renders the memorial', async ({ page }) => {
-  await page.goto('/the-wind-keeps-her-songs/');
-  await expect(page.getByRole('heading', { name: 'The wind keeps her songs.' })).toBeVisible();
+  await page.goto('/');
+  await expect(page.getByRole('heading', { name: 'Dolly in New Zealand.' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Read her story' })).toBeVisible();
   await expect(page.getByText('Two nights in Aotearoa.')).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Her first solo show.' })).toBeVisible();
@@ -17,7 +17,7 @@ test('homepage renders the memorial', async ({ page }) => {
 
 test('mobile menu opens and closes', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/the-wind-keeps-her-songs/');
+  await page.goto('/');
   await page.getByRole('button', { name: 'Open menu' }).click();
   const aotearoaLink = page.getByRole('link', { name: 'Aotearoa', exact: true });
   await expect(aotearoaLink).toBeVisible();
@@ -27,7 +27,7 @@ test('mobile menu opens and closes', async ({ page }) => {
 });
 
 test('music player opens without autoplay', async ({ page }) => {
-  await page.goto('/the-wind-keeps-her-songs/');
+  await page.goto('/');
   await page.getByRole('button', { name: 'Listen to Dolly Parton' }).click();
   await expect(page.getByRole('dialog', { name: 'Listen to Dolly Parton' })).toBeVisible();
   await page.getByRole('button', { name: 'Jolene' }).click();

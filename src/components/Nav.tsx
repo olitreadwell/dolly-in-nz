@@ -22,7 +22,7 @@ export function Nav(): ReactNode {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
         <a href="#top" className="font-display text-lg font-semibold tracking-wide">
-          Dolly <span className="italic text-gold">Parton</span>
+          Dolly in <span className="italic text-gold">New Zealand</span>
         </a>
         <ul className="hidden items-center gap-5 text-sm md:flex">
           {navItems.map((label) => (
