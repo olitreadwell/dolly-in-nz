@@ -56,10 +56,13 @@ describe('HomePage', () => {
     }
   });
 
-  it('renders all tribute cards with read links', () => {
+  it('renders every tribute card with a labelled source link', () => {
     render(<HomePage />);
-    const links = screen.getAllByRole('link', { name: 'Read it' });
-    expect(links).toHaveLength(tributeCards.length);
+    for (const card of tributeCards) {
+      expect(
+        screen.getByRole('link', { name: `${card.headline}, ${card.outlet}` })
+      ).toHaveAttribute('href', card.url);
+    }
   });
 
   it('renders the gallery with credits and sources', () => {

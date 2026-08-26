@@ -26,7 +26,7 @@ export function BooksSection(): ReactNode {
             href={booksCopy.ctaHref}
             target="_blank"
             rel="noreferrer"
-            className="mt-9 inline-flex items-center gap-2 bg-gold px-6 py-3 text-sm font-semibold tracking-wide text-plum transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-soft active:translate-y-0"
+            className="mt-9 inline-flex items-center gap-2 bg-gold px-6 py-3 text-sm font-semibold tracking-wide text-ink transition-transform hover:-translate-y-0.5 hover:bg-gold-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold active:translate-y-0"
           >
             {booksCopy.cta}
           </a>

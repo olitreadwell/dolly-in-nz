@@ -4,10 +4,10 @@
   --color-ink: #fffaf5;
   --color-ink-2: #fdeff3;
   --color-ink-3: #eef3fb;
-  --color-gold: #b2802a;
-  --color-gold-soft: #c7954a;
+  --color-gold: #6f4a13;
+  --color-gold-soft: #915d18;
   --color-cream: #4a364e;
-  --color-moss: #8d6b84;
+  --color-moss: #5f4358;
   --color-plum: #3a2a41;
   --color-blush: #e59ab8;
   --color-line: #e6c9a0;
@@ -27,6 +27,11 @@ body {
     radial-gradient(900px 520px at 8% 12%, rgba(255, 236, 190, 0.45), transparent 55%),
     radial-gradient(800px 560px at 55% 115%, rgba(190, 216, 250, 0.5), transparent 60%);
   background-attachment: fixed;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
 }
 
 ::selection {
@@ -94,6 +99,11 @@ body {
 
 .wind-marquee {
   animation: wind-marquee 40s linear infinite;
+}
+
+.wind-marquee:hover,
+.wind-marquee:focus-within {
+  animation-play-state: paused;
 }
 
 .animate-drift {

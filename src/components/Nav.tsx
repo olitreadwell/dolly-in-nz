@@ -42,7 +42,7 @@ export function Nav(): ReactNode {
           aria-expanded={menuOpen}
           aria-controls="mobile-nav-menu"
           onClick={() => setMenuOpen((open) => !open)}
-          className="inline-flex items-center justify-center p-2 text-gold transition-colors hover:text-gold-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-soft md:hidden"
+          className="inline-flex items-center justify-center p-2 text-gold transition-colors hover:text-gold-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold md:hidden"
         >
           {menuOpen ? (
             <XIcon size={24} aria-hidden="true" />

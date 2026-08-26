@@ -25,7 +25,7 @@ export function TributeCards(): ReactNode {
                 {card.headline}
               </h3>
               <blockquote className="mt-4 flex-1">
-                <p className="font-display text-xl leading-snug text-gold-soft italic">
+                <p className="font-display text-xl leading-snug text-gold italic">
                   &ldquo;{card.quote}&rdquo;
                 </p>
               </blockquote>
@@ -33,6 +33,7 @@ export function TributeCards(): ReactNode {
                 href={card.url}
                 target="_blank"
                 rel="noreferrer"
+                aria-label={`${card.headline}, ${card.outlet}`}
                 className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-gold underline-offset-4 hover:underline focus-visible:underline"
               >
                 Read it

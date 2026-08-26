@@ -42,7 +42,7 @@ export function PressSection(): ReactNode {
                 {clip.headline}
               </h3>
               <blockquote className="mt-4 flex-1">
-                <p className="font-display text-xl leading-snug text-gold-soft italic">
+                <p className="font-display text-xl leading-snug text-gold italic">
                   &ldquo;{clip.quote}&rdquo;
                 </p>
               </blockquote>
@@ -50,6 +50,7 @@ export function PressSection(): ReactNode {
                 href={clip.url}
                 target="_blank"
                 rel="noreferrer"
+                aria-label={`${clip.headline}, ${clip.outlet}`}
                 className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-gold underline-offset-4 hover:underline focus-visible:underline"
               >
                 {kindLabels[clip.kind].link}

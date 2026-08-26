@@ -36,6 +36,7 @@ export function GallerySection(): ReactNode {
                     href={image.sourceUrl}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`${image.alt} source`}
                     className="underline underline-offset-2 hover:text-gold"
                   >
                     Source
