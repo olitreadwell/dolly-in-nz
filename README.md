@@ -15,11 +15,11 @@ npm run check      # full gate: format, lint, typecheck, tests, build, smoke, e2
 
 Vercel is the only host. `vercel.json` limits automatic deployments to `main`
 and `development`, and `autoJobCancelation` cancels queued or running builds
-when a newer push lands. `framework` is set to `other` with `outputDirectory`
-pointing at `out/`, so Vercel serves the static export directly instead of
-running the Next.js preset. No preview deployments happen for other branches.
-Import the repo in Vercel and push to `main`; no environment variables are
-required.
+when a newer push lands. The Vercel project uses the Other framework preset
+with `outputDirectory` pointing at `out/`, so Vercel serves the static export
+directly instead of running the Next.js preset. No preview deployments happen
+for other branches. Import the repo in Vercel, set the framework preset to
+Other, and push to `main`; no environment variables are required.
 
 ## How it is built
 
