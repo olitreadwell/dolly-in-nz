@@ -5,7 +5,7 @@ test('homepage renders the memorial', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Dolly in New Zealand.' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Read her story' })).toBeVisible();
   await expect(page.getByText('Two nights in Aotearoa.')).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Her first solo show.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Her first New Zealand show.' })).toBeVisible();
   const heroImage = page.getByRole('img', { name: 'Portrait of Dolly Parton' });
   await expect(heroImage).toBeVisible();
   await expect.poll(() => heroImage.evaluate((img) => img.naturalWidth)).toBeGreaterThan(0);

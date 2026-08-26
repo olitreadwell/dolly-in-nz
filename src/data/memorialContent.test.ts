@@ -3,12 +3,20 @@ import {
   galleryImages,
   getMemorialImageUrl,
   firstShowCopy,
+  funnyQuotes,
   heroCopy,
+  lessonItems,
   musicSongs,
+  outfitLooks,
+  outsideLinks,
   pressArticles,
+  recordItems,
   sourceLinks,
+  storyCopy,
   timelineEntries,
   tributeCards,
+  triviaItems,
+  visits,
 } from './memorialContent';
 
 describe('memorialContent', () => {
@@ -71,5 +79,59 @@ describe('memorialContent', () => {
   it('sources the first show copy', () => {
     expect(firstShowCopy.ctaHref).toMatch(/^https:\/\//);
     expect(firstShowCopy.body.length).toBeGreaterThan(0);
+  });
+
+  it('orders the three visits oldest to newest', () => {
+    const years = visits.map((visit) => Number(visit.year));
+    expect(years).toEqual([...years].sort((a, b) => a - b));
+    for (const visit of visits) {
+      expect(visit.sourceUrl).toMatch(/^https:\/\//);
+      expect(visit.body.length).toBeGreaterThan(0);
+    }
+  });
+
+  it('keeps the story opener weather-sourced', () => {
+    expect(storyCopy.weatherNote).toMatch(/The Press Noon Forecast/);
+    expect(storyCopy.weatherSourceUrl).toMatch(/^https:\/\/paperspast\.natlib\.govt\.nz\//);
+    expect(storyCopy.intro.length).toBeGreaterThan(1);
+  });
+
+  it('sources or labels every funny quote', () => {
+    for (const item of funnyQuotes) {
+      expect(item.quote.length).toBeGreaterThan(10);
+      expect(item.context.length).toBeGreaterThan(0);
+      if (item.sourceUrl !== undefined) {
+        expect(item.sourceUrl).toMatch(/^https:\/\//);
+      }
+    }
+  });
+
+  it('sources every record, trivia item and lesson', () => {
+    for (const item of [...recordItems, ...triviaItems]) {
+      expect(item.fact.length).toBeGreaterThan(0);
+      expect(item.detail.length).toBeGreaterThan(0);
+      if (item.sourceUrl !== undefined) {
+        expect(item.sourceUrl).toMatch(/^https:\/\//);
+      }
+    }
+    for (const lesson of lessonItems) {
+      expect(lesson.title.length).toBeGreaterThan(0);
+      expect(lesson.body.length).toBeGreaterThan(0);
+    }
+  });
+
+  it('links every look to its commons source', () => {
+    for (const look of outfitLooks) {
+      expect(look.sourceUrl).toMatch(/^https:\/\/commons\.wikimedia\.org/);
+      expect(look.src).toMatch(/^\/images\//);
+      expect(look.credit).not.toHaveLength(0);
+    }
+  });
+
+  it('points every outside link at a real url', () => {
+    for (const link of outsideLinks) {
+      expect(link.url).toMatch(/^https:\/\//);
+      expect(link.blurb.length).toBeGreaterThan(0);
+    }
   });
 });

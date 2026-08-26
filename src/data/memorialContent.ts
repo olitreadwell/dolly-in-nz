@@ -39,6 +39,55 @@ export interface PressArticle {
   url: string;
 }
 
+export interface Visit {
+  year: string;
+  title: string;
+  date: string;
+  venue: string;
+  line: string;
+  body: string[];
+  sourceLabel: string;
+  sourceUrl: string;
+}
+
+export interface QuoteItem {
+  quote: string;
+  context: string;
+  sourceLabel?: string;
+  sourceUrl?: string;
+}
+
+export interface RecordItem {
+  fact: string;
+  detail: string;
+  sourceLabel?: string;
+  sourceUrl?: string;
+}
+
+export interface LessonItem {
+  title: string;
+  body: string;
+  quote?: string;
+  quoteSource?: string;
+  sourceUrl?: string;
+}
+
+export interface OutfitLook {
+  src: string;
+  alt: string;
+  era: string;
+  caption: string;
+  credit: string;
+  license: string;
+  sourceUrl: string;
+}
+
+export interface OutsideLink {
+  label: string;
+  url: string;
+  blurb: string;
+}
+
 /**
  * Absolute public URL for a memorial image. Vercel serves the export at the
  * root, so images live at /images.
@@ -54,15 +103,14 @@ export const heroCopy = {
   eyebrow: 'A memorial for Aotearoa',
   titlePre: 'Dolly in',
   titleEm: 'New Zealand.',
-  subtitle:
-    'The wind keeps her songs: three visits, two Auckland shows, and a country that never let her go.',
+  subtitle: 'Three visits: 1979, 1987, 2014. The wind keeps her songs.',
   cta: 'Read her story',
   ctaHref: '#story',
 } as const;
 
 export const firstShowCopy = {
   eyebrow: 'Aotearoa, 11 July 1979',
-  title: 'Her first solo show.',
+  title: 'Her first New Zealand show.',
   body: [
     '"New Zealanders will get their first chance this week to say hello to Queen of Country, Dolly Parton, when the blonde bombshell gives a concert in Auckland." The Press, 9 July 1979.',
     '"Dolly Parton is still coming and will perform with her band on July 11 in the Auckland Town Hall," wrote Rip It Up in June 1979. She was 33; "Jolene" was five years old and "9 to 5" was a year away.',
@@ -112,8 +160,8 @@ export const timelineEntries: readonly TimelineEntry[] = [
   },
   {
     year: '1987',
-    title: 'Fifty thousand, with Kenny Rogers',
-    body: 'Back with Kenny Rogers, Islands in the Stream still hot, she played to a 50,000-strong crowd at Mt Smart Stadium, Auckland, alongside Suzanne Prentice and Billy T. James.',
+    title: 'Western Springs, with Kenny Rogers',
+    body: 'Back with Kenny Rogers, Islands in the Stream still hot, she played Western Springs Stadium in Auckland on 1 March 1987, the visit she later told New Zealand Women\u2019s Weekly she loved the most.',
   },
   {
     year: '1992',
@@ -157,7 +205,7 @@ export const aotearoaCopy = {
   title: 'Two nights in Aotearoa.',
   body: [
     '7 and 8 February 2014, Vector Arena, Auckland. The Blue Smoke tour touched down in Aotearoa twice, and the album went on sale here on 31 January, months ahead of the United States.',
-    'She had played here before: Town Hall, Auckland in 1979, and a 50,000-strong Mt Smart Stadium show with Kenny Rogers in 1987. Auckland got her. The rest of Aotearoa kept the songs.',
+    'She had played here before: the Town Hall, Auckland in 1979, and Western Springs Stadium with Kenny Rogers in 1987. Auckland got her. The rest of Aotearoa kept the songs.',
     'Three years before she died, Wellington finally sang for her. On 13 May 2023 the Glamaphones choir and the Hoot\u2019n\u2019Annies street brass band performed \u201CInspired by Dolly\u201D at St Andrews on the Terrace, a full night of her songs.',
   ],
 } as const;
@@ -207,6 +255,59 @@ export const tributeCards: readonly TributeCard[] = [
 ];
 
 export const pressArticles: readonly PressArticle[] = [
+  {
+    outlet: 'Rip It Up',
+    date: '1 Oct 1977',
+    kind: 'article',
+    headline: 'A Living Dolly: if you will Parton the expression',
+    quote:
+      'When Dolly Parton says "I don\u2019t want to leave the country but to take the country with me," she speaks with the self assurance of her most sentimental lyrics.',
+    url: 'https://paperspast.natlib.govt.nz/periodicals/RIU19771001.2.32',
+  },
+  {
+    outlet: 'Rip It Up',
+    date: '1 Jul 1979',
+    kind: 'article',
+    headline: 'Tours: the only major concert this month',
+    quote:
+      'The only major concert this month is Dolly Parton on July 11, Auckland Town Hall. Dolly\u2019s tour coincides with the release of her new album Great Balls of Fire.',
+    url: 'https://paperspast.natlib.govt.nz/periodicals/RIU19790701.2.9',
+  },
+  {
+    outlet: 'Rip It Up',
+    date: '1 Aug 1979',
+    kind: 'article',
+    headline: 'Good Golly Ms Dolly',
+    quote:
+      'The biggest shock is just how anyone can look so damned pretty in that lime green cat suit with its surprisingly demure, but heavily sequinned, neckline.',
+    url: 'https://paperspast.natlib.govt.nz/periodicals/RIU19790801.2.16',
+  },
+  {
+    outlet: 'The Press',
+    date: '21 Jan 1981',
+    kind: 'article',
+    headline: 'The little girl with the big voice',
+    quote:
+      'She is a modern-day Mae West. Miss Parton writes all her own material and has a rapport with an audience which is quite unusual.',
+    url: 'https://paperspast.natlib.govt.nz/newspapers/CHP19810121.2.102.3',
+  },
+  {
+    outlet: 'Broadsheet',
+    date: '1 May 1981',
+    kind: 'photo',
+    headline: 'Dolly Parton, Lily Tomlin and Jane Fonda front the boss in 9 to 5',
+    quote: 'Auckland\u2019s feminist magazine covered the office workers who get even.',
+    url: 'https://paperspast.natlib.govt.nz/periodicals/BROADS19810501.2.23.3',
+  },
+  {
+    outlet: 'The Press',
+    date: '13 Aug 1984',
+    kind: 'article',
+    headline: 'Dolly Parton stars in outrageous comedy',
+    quote:
+      '\u201CThey certainly don\u2019t play me as some dumb blonde,\u201D Dolly Parton said while making the film. \u201CDoralee is an intelligent, caring person.\u201D',
+    url: 'https://paperspast.natlib.govt.nz/newspapers/CHP19840813.2.81.4',
+  },
   {
     outlet: 'Eventfinda News',
     date: '30 Oct 2013',
@@ -327,7 +428,7 @@ export const booksCopy = {
     'Aotearoa has its own National Library. She would have loved that.',
   ],
   cta: 'Read about the Imagination Library',
-  ctaHref: 'https://dollyparton.com/imagination_library',
+  ctaHref: 'https://imaginationlibrary.com/',
 } as const;
 
 export interface MusicSong {
@@ -379,7 +480,374 @@ export const galleryImages: readonly GalleryImage[] = [
   },
 ];
 
+export const storyCopy = {
+  eyebrow: 'Three visits in 35 years',
+  title: 'First, again, and last.',
+  intro: [
+    'At noon on 11 July 1979, the Auckland weather reading was 12 degrees and cloudy, with a trough of low pressure drifting east over the Tasman Sea. That night she walked onto the Auckland Town Hall stage for the first time. New Zealand had never seen her live before.',
+    '"New Zealanders will get their first chance this week to say hello to Queen of Country, Dolly Parton," The Press wrote two days earlier. She arrived with an eight piece band, the Great Balls of Fire album still new, and a lime green sequinned catsuit that Rip It Up kept describing.',
+    'Aotearoa got her three times: a solo Town Hall night in 1979, Western Springs with Kenny Rogers in 1987, and two Vector Arena nights in 2014. The rest of the country got the songs.',
+  ],
+  weatherNote:
+    'Weather from The Press Noon Forecast, 11 July 1979: Auckland, 12 degrees, cloudy, light north-west wind.',
+  weatherSourceUrl: 'https://paperspast.natlib.govt.nz/newspapers/CHP19790711.2.181',
+} as const;
+
+export const visits: readonly Visit[] = [
+  {
+    year: '1979',
+    title: 'First: the Town Hall',
+    date: '11 July 1979',
+    venue: 'Auckland Town Hall',
+    line: 'A solo winter night, with an eight piece band.',
+    body: [
+      '"Dolly Parton is still coming and will perform with her band on July 11 in the Auckland Town Hall," Rip It Up told its readers in June, adding that the tour coincided with the new album Great Balls of Fire.',
+      'Rip It Up reviewed the visit and interviewed her in her lime green catsuit. "The biggest shock is just how anyone can look so damned pretty in that," the magazine wrote.',
+    ],
+    sourceLabel: 'Setlist.fm: Dolly Parton, Auckland Town Hall 1979',
+    sourceUrl:
+      'https://www.setlist.fm/setlist/dolly-parton/1979/auckland-town-hall-auckland-new-zealand-6bc70e36.html',
+  },
+  {
+    year: '1987',
+    title: 'Again: with Kenny',
+    date: '1 March 1987',
+    venue: 'Western Springs Stadium, Auckland',
+    line: 'Islands in the Stream, live in the open air.',
+    body: [
+      'She came back with Kenny Rogers on the Islands in the Stream tour. "We loved the people, we loved the food... we just loved everything about it," she told New Zealand Women\u2019s Weekly in 2023. "It\u2019s 20 hours to get there! We couldn\u2019t just say, oh, we\u2019re going to New Zealand for the weekend."',
+    ],
+    sourceLabel: 'ODT (RNZ): Dolly wanted a slice of home in NZ',
+    sourceUrl: 'https://www.odt.co.nz/news/national/dolly-wanted-a-slice-of-home-in-nz-kbo67st0',
+  },
+  {
+    year: '2014',
+    title: 'Last: two nights',
+    date: '7 and 8 February 2014',
+    venue: 'Vector Arena, Auckland',
+    line: 'One show announced, a second added for demand.',
+    body: [
+      'A single Vector Arena show was announced in October 2013. Ticket demand added a second night, 8 February, by December. The Blue Smoke album went on sale in New Zealand first and reached number one here. "My life has been like a paid vacation," she told the crowds, "even when I\u2019m comin\u2019 over there."',
+    ],
+    sourceLabel: 'NZ Herald: Dolly Parton to play second NZ show',
+    sourceUrl:
+      'https://www.nzherald.co.nz/entertainment/tour-news-dolly-parton-to-play-second-nz-show/VCEFUMLJQJOKUMWTEI6YOV7DHM/',
+  },
+];
+
+export const funnyQuotes: readonly QuoteItem[] = [
+  {
+    quote: 'It costs a lot of money to look this cheap.',
+    context: 'Her answer, every time, about the rhinestones.',
+  },
+  {
+    quote:
+      'I look just like the girl next door, if you happen to live next door to an amusement park.',
+    context: 'On the wig, the heels and the rest of it.',
+  },
+  {
+    quote:
+      'People started telling me I should change my look. And I thought, that means they\u2019re noticing the way I look. So I decided to change it all right, by exaggerating it.',
+    context: 'On the teased hair, to Rip It Up in Auckland.',
+    sourceLabel: 'Rip It Up, August 1979',
+    sourceUrl: 'https://paperspast.natlib.govt.nz/periodicals/RIU19790801.2.16',
+  },
+  {
+    quote:
+      'I wish people wouldn\u2019t dwell on this "New Dolly Parton", \u2019cos I am Dolly Parton. I\u2019ll always be a country person and whatever I do expands on that.',
+    context: 'To Rip It Up, in her New Zealand visit year.',
+    sourceLabel: 'Rip It Up, August 1979',
+    sourceUrl: 'https://paperspast.natlib.govt.nz/periodicals/RIU19790801.2.16',
+  },
+  {
+    quote: 'My life has been like a paid vacation.',
+    context: 'To the Auckland crowds, 2014.',
+    sourceLabel: 'RNZ, 2026',
+    sourceUrl: 'https://www.odt.co.nz/news/national/dolly-wanted-a-slice-of-home-in-nz-kbo67st0',
+  },
+  {
+    quote:
+      'I\u2019ve always been a happy sort of person. I was born with a happy nature and a happy heart.',
+    context: 'Telling The Press why the welcome would be returned.',
+    sourceLabel: 'The Press, 9 July 1979',
+    sourceUrl: 'https://paperspast.natlib.govt.nz/newspapers/CHP19790709.2.101.1',
+  },
+];
+
+export const recordItems: readonly RecordItem[] = [
+  {
+    fact: 'Seven decades on the US country charts',
+    detail:
+      'The most decades on the Hot Country Songs chart by a female artist, verified by Guinness World Records in 2021.',
+    sourceLabel: 'Today, December 2021',
+    sourceUrl:
+      'https://www.today.com/popculture/dolly-parton-breaks-3-guinness-world-records-see-list-t243473',
+  },
+  {
+    fact: 'Most No. 1 country hits by a woman',
+    detail: '25 of her singles reached No. 1 on the US Hot Country Songs chart.',
+    sourceLabel: 'TODAY, December 2021',
+    sourceUrl:
+      'https://www.today.com/popculture/dolly-parton-breaks-3-guinness-world-records-see-list-t243473',
+  },
+  {
+    fact: 'Most hits on the Hot Country Songs chart',
+    detail:
+      '109 charted country singles, a record she set in 2021 with Reba McEntire on "Does He Love You".',
+    sourceLabel: 'TODAY, December 2021',
+    sourceUrl:
+      'https://www.today.com/popculture/dolly-parton-breaks-3-guinness-world-records-see-list-t243473',
+  },
+  {
+    fact: '42 Top 10 country albums',
+    detail: 'The most career Top 10 country albums of any artist, male or female.',
+    sourceLabel: 'Wikipedia, Dolly Parton',
+    sourceUrl: 'https://en.wikipedia.org/wiki/Dolly_Parton',
+  },
+  {
+    fact: 'More than 3,000 songs',
+    detail:
+      'She told CNN in 2009 she had written at least 3,000 songs, writing seriously since the age of seven.',
+    sourceLabel: 'Wikipedia, Dolly Parton',
+    sourceUrl: 'https://en.wikipedia.org/wiki/Dolly_Parton',
+  },
+  {
+    fact: '300 million books gifted',
+    detail:
+      'The Imagination Library passed the 300 million book mark in 2025, one free book a month to each enrolled child.',
+    sourceLabel: 'Imagination Library, year in review',
+    sourceUrl: 'https://imaginationlibrary.com/news-resources/year-in-review/',
+  },
+];
+
+export const triviaItems: readonly RecordItem[] = [
+  {
+    fact: '"9 to 5" came from her nails',
+    detail:
+      'She wrote the melody by tapping her long acrylic nails on a studio desk. The nails she kept, the song became an anthem.',
+    sourceLabel: 'RNZ, 2026',
+    sourceUrl:
+      'https://www.rnz.co.nz/life/people/celebrity/country-music-star-dolly-parton-has-died-aged-80',
+  },
+  {
+    fact: '"Jolene" was a bank teller',
+    detail:
+      'She told NPR she wrote it after a red-haired teller paid her husband Carl a little too much attention.',
+    sourceLabel: 'RNZ, 2026',
+    sourceUrl:
+      'https://www.rnz.co.nz/life/people/celebrity/country-music-star-dolly-parton-has-died-aged-80',
+  },
+  {
+    fact: 'She said no to Elvis',
+    detail:
+      'She kept the publishing of "I Will Always Love You" and turned down Elvis when his manager wanted half of it. The song paid for the rest of her life.',
+    sourceLabel: 'RNZ, 2026',
+    sourceUrl:
+      'https://www.rnz.co.nz/life/people/celebrity/country-music-star-dolly-parton-has-died-aged-80',
+  },
+  {
+    fact: 'She turned down the Medal of Freedom three times',
+    detail:
+      'Twice while Carl was ill, and once more in 2025 to keep out of politics. The medals she never needed.',
+    sourceLabel: 'TODAY, 2021',
+    sourceUrl:
+      'https://www.today.com/popculture/dolly-parton-turned-down-presidential-medal-freedom-twice-t207752',
+  },
+  {
+    fact: 'A lichen is named after her',
+    detail:
+      'In 2015, scientists named a newly discovered Appalachian lichen Japewiella dollypartoniana in her honour.',
+    sourceLabel: 'Wikipedia, Dolly Parton',
+    sourceUrl: 'https://en.wikipedia.org/wiki/Dolly_Parton',
+  },
+  {
+    fact: 'Dollywood feeds a county',
+    detail:
+      'She bought the theme park in 1986, renamed it, and it became Sevier County\u2019s largest employer with around 23,000 jobs.',
+    sourceLabel: 'RNZ, 2026',
+    sourceUrl:
+      'https://www.rnz.co.nz/life/people/celebrity/country-music-star-dolly-parton-has-died-aged-80',
+  },
+  {
+    fact: '59 years of private marriage',
+    detail:
+      'She and Carl Dean stayed married for 59 years, and he barely appeared in public with her. He died in March 2025.',
+    sourceLabel: 'RNZ, 2026',
+    sourceUrl:
+      'https://www.rnz.co.nz/life/people/celebrity/country-music-star-dolly-parton-has-died-aged-80',
+  },
+  {
+    fact: 'Godmother to Miley',
+    detail: 'She was godmother to Miley Cyrus, who called her "the purest soul" the day she died.',
+    sourceLabel: '1News, 2026',
+    sourceUrl:
+      'https://www.1news.co.nz/2026/08/26/singer-dolly-parton-loved-everything-about-new-zealand/',
+  },
+];
+
+export const lessonItems: readonly LessonItem[] = [
+  {
+    title: 'Own what you make',
+    body: 'She kept the publishing to "I Will Always Love You" when Elvis wanted half of it. The song paid her for decades after.',
+    quote: 'I call it the little gift that keeps giving.',
+    quoteSource: 'RNZ, 2020',
+    sourceUrl: 'https://www.odt.co.nz/news/national/dolly-wanted-a-slice-of-home-in-nz-kbo67st0',
+  },
+  {
+    title: 'Make the quirk work',
+    body: 'People told her the teased hair was out of style. She decided the notice meant she should exaggerate it, and the look became the brand.',
+    quote: 'I decided to change it all right, by exaggerating it.',
+    quoteSource: 'Rip It Up, 1979',
+    sourceUrl: 'https://paperspast.natlib.govt.nz/periodicals/RIU19790801.2.16',
+  },
+  {
+    title: 'Give quietly, give hugely',
+    body: '300 million books, a million dollars of seed money for the COVID vaccine, and US$1000 a month to families who lost homes to the Tennessee wildfires.',
+    quote: 'I felt so proud to have been part of that little seed money.',
+    quoteSource: 'RNZ, 2026',
+    sourceUrl:
+      'https://www.rnz.co.nz/life/people/celebrity/country-music-star-dolly-parton-has-died-aged-80',
+  },
+  {
+    title: 'Work like it is a holiday',
+    body: 'She toured, recorded, wrote and promoted to the end. The work was the reward.',
+    quote: 'My life has been like a paid vacation.',
+    quoteSource: 'Auckland, 2014',
+    sourceUrl: 'https://www.odt.co.nz/news/national/dolly-wanted-a-slice-of-home-in-nz-kbo67st0',
+  },
+  {
+    title: 'Stay who you are',
+    body: 'Country music was the home she never left, no matter how pop the charts got.',
+    quote: 'I\u2019ll always be a country person and whatever I do expands on that.',
+    quoteSource: 'Rip It Up, 1979',
+    sourceUrl: 'https://paperspast.natlib.govt.nz/periodicals/RIU19790801.2.16',
+  },
+  {
+    title: 'Dream more, learn more, care more',
+    body: 'Her own prescription for a life. She turned it into a song, and then into a library.',
+    quote: 'Find out who you are and do it on purpose.',
+    quoteSource: 'Her favourite advice',
+    sourceUrl: 'https://en.wikipedia.org/wiki/Dolly_Parton',
+  },
+];
+
+export const outfitLooks: readonly OutfitLook[] = [
+  {
+    src: getMemorialImageUrl('dolly-1974.jpg'),
+    alt: 'Dolly Parton in a 1970s RCA publicity photo',
+    era: '1970s',
+    caption: 'The bouffant years: RCA press photo',
+    credit: 'RCA Records',
+    license: 'Public domain',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_-_RCA_Press_Photo_(1974).jpg',
+  },
+  {
+    src: getMemorialImageUrl('dolly-rhinestone-1984.jpg'),
+    alt: 'Dolly Parton arriving at the Rhinestone premiere with Sylvester Stallone',
+    era: '1984',
+    caption: 'Rhinestone premiere, with Stallone',
+    credit: 'Mel Melcon, Los Angeles Times',
+    license: 'CC BY 4.0',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_and_Sylvester_Stallone.jpg',
+  },
+  {
+    src: getMemorialImageUrl('dolly-2000.jpg'),
+    alt: 'Dolly Parton at the National Press Club in 2000',
+    era: '2000',
+    caption: 'National Press Club, Washington DC',
+    credit: 'Kingkongphoto',
+    license: 'CC BY-SA 2.0',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_2000.jpg',
+  },
+  {
+    src: getMemorialImageUrl('dolly-2014-cologne.jpg'),
+    alt: 'Dolly Parton performing in a sparkling dress at Lanxess Arena in 2014',
+    era: '2014',
+    caption: 'Blue Smoke tour, Cologne, July 2014',
+    credit: 'Josef J. Weidinger',
+    license: 'CC BY-SA 3.0',
+    sourceUrl:
+      'https://commons.wikimedia.org/wiki/File:Dolly_Parton_@_Lanxess-Arena_(K%C3%B6ln).jpg',
+  },
+  {
+    src: getMemorialImageUrl('dolly-2022-peabody.jpg'),
+    alt: 'Dolly Parton at the Peabody Awards in 2022',
+    era: '2022',
+    caption: 'Peabody Awards, 2022',
+    credit: 'Peabody Awards',
+    license: 'CC BY-SA 3.0',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_in_2022.jpg',
+  },
+];
+
+export const outsideLinks: readonly OutsideLink[] = [
+  {
+    label: 'Dolly Parton',
+    url: 'https://dollyparton.com/',
+    blurb: 'The official site: songs, news and her own telling of the story.',
+  },
+  {
+    label: 'Imagination Library',
+    url: 'https://imaginationlibrary.com/',
+    blurb: 'One free book a month for every enrolled child until school.',
+  },
+  {
+    label: 'The Dollywood Foundation',
+    url: 'https://dollywoodfoundation.org/',
+    blurb: 'The charity behind the library, the Buddy Program and disaster relief.',
+  },
+  {
+    label: 'Dollywood',
+    url: 'https://www.dollywood.com/',
+    blurb: 'The theme park she bought in 1986 and renamed for herself.',
+  },
+];
+
 export const sourceLinks = [
+  {
+    label: 'The Press (Papers Past): "Hello, Dolly", 9 July 1979',
+    url: 'https://paperspast.natlib.govt.nz/newspapers/CHP19790709.2.101.1',
+  },
+  {
+    label: 'The Press (Papers Past): Noon Forecast, 11 July 1979 (Auckland weather)',
+    url: 'https://paperspast.natlib.govt.nz/newspapers/CHP19790711.2.181',
+  },
+  {
+    label: 'The Press (Papers Past): Noon Forecast, 12 July 1979 (Auckland weather)',
+    url: 'https://paperspast.natlib.govt.nz/newspapers/CHP19790712.2.222',
+  },
+  {
+    label: 'Rip It Up (Papers Past): "Tours" — 11 July, Auckland Town Hall, June 1979',
+    url: 'https://paperspast.natlib.govt.nz/periodicals/RIU19790601.2.8',
+  },
+  {
+    label: 'Rip It Up (Papers Past): "Tours" — Great Balls of Fire, July 1979',
+    url: 'https://paperspast.natlib.govt.nz/periodicals/RIU19790701.2.9',
+  },
+  {
+    label: 'Rip It Up (Papers Past): "Good Golly Ms Dolly" interview, August 1979',
+    url: 'https://paperspast.natlib.govt.nz/periodicals/RIU19790801.2.16',
+  },
+  {
+    label: 'Rip It Up (Papers Past): "A Living Dolly" album review, October 1977',
+    url: 'https://paperspast.natlib.govt.nz/periodicals/RIU19771001.2.32',
+  },
+  {
+    label: 'Broadsheet (Papers Past): 9 to 5 film feature, May 1981',
+    url: 'https://paperspast.natlib.govt.nz/periodicals/BROADS19810501.2.23.3',
+  },
+  {
+    label: 'The Press (Papers Past): "The little girl with the big voice", 21 January 1981',
+    url: 'https://paperspast.natlib.govt.nz/newspapers/CHP19810121.2.102.3',
+  },
+  {
+    label: 'The Press (Papers Past): "Dolly Parton stars in outrageous comedy", 13 August 1984',
+    url: 'https://paperspast.natlib.govt.nz/newspapers/CHP19840813.2.81.4',
+  },
+  {
+    label: 'Rip It Up (Papers Past): "Dolly Parton charmed them all", July 1987',
+    url: 'https://paperspast.natlib.govt.nz/periodicals/RIU19870701.2.14.14',
+  },
   {
     label: 'Setlist.fm: Dolly Parton, Auckland Town Hall 1979',
     url: 'https://www.setlist.fm/setlist/dolly-parton/1979/auckland-town-hall-auckland-new-zealand-6bc70e36.html',
@@ -395,26 +863,6 @@ export const sourceLinks = [
   {
     label: 'Eventfinda News: Dolly Parton Auckland Concert Announced (2013)',
     url: 'https://www.eventfinda.co.nz/news/2013/10/dolly-parton-announces-auckland-concert',
-  },
-  {
-    label: 'The Press (Papers Past): "Hello, Dolly", 9 July 1979',
-    url: 'https://paperspast.natlib.govt.nz/newspapers/CHP19790709.2.101.1',
-  },
-  {
-    label: 'Rip It Up (Papers Past): "Good Golly Ms Dolly", August 1979',
-    url: 'https://paperspast.natlib.govt.nz/periodicals/RIU19790801.2.16',
-  },
-  {
-    label: 'Rip It Up (Papers Past): "Tours" — 11 July, Auckland Town Hall, June 1979',
-    url: 'https://paperspast.natlib.govt.nz/periodicals/RIU19790601.2.8',
-  },
-  {
-    label: 'Rip It Up (Papers Past): "A Living Dolly" album review, October 1977',
-    url: 'https://paperspast.natlib.govt.nz/periodicals/RIU19771001.2.32',
-  },
-  {
-    label: 'Rip It Up (Papers Past): "Dolly Parton charmed them all", July 1987',
-    url: 'https://paperspast.natlib.govt.nz/periodicals/RIU19870701.2.14.14',
   },
   {
     label: "NZ Herald: Tour news, Dolly Parton plans NZ 'homecoming' show (2013)",
@@ -486,6 +934,34 @@ export const sourceLinks = [
   },
   {
     label: 'Dollywood Foundation: Imagination Library',
-    url: 'https://dollyparton.com/imagination_library',
+    url: 'https://imaginationlibrary.com/',
+  },
+  {
+    label: 'Imagination Library: year in review (300 million books)',
+    url: 'https://imaginationlibrary.com/news-resources/year-in-review/',
+  },
+  {
+    label: 'TODAY: Dolly Parton breaks 3 Guinness World Records (2021)',
+    url: 'https://www.today.com/popculture/dolly-parton-breaks-3-guinness-world-records-see-list-t243473',
+  },
+  {
+    label: 'TODAY: Dolly Parton turned down the Presidential Medal of Freedom twice',
+    url: 'https://www.today.com/popculture/dolly-parton-turned-down-presidential-medal-freedom-twice-t207752',
+  },
+  {
+    label: 'Wikipedia: Dolly Parton',
+    url: 'https://en.wikipedia.org/wiki/Dolly_Parton',
+  },
+  {
+    label: 'Dolly Parton: official site',
+    url: 'https://dollyparton.com/',
+  },
+  {
+    label: 'The Dollywood Foundation',
+    url: 'https://dollywoodfoundation.org/',
+  },
+  {
+    label: 'Dollywood',
+    url: 'https://www.dollywood.com/',
   },
 ] as const;

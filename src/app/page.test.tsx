@@ -3,11 +3,18 @@ import { describe, expect, it } from 'vitest';
 import HomePage from '@/app/page';
 import {
   galleryImages,
+  funnyQuotes,
+  lessonItems,
   musicSongs,
+  outfitLooks,
+  outsideLinks,
   pressArticles,
+  recordItems,
   sourceLinks,
   timelineEntries,
   tributeCards,
+  triviaItems,
+  visits,
 } from '@/data/memorialContent';
 
 describe('HomePage', () => {
@@ -27,7 +34,9 @@ describe('HomePage', () => {
 
   it('leads with her first solo show', () => {
     render(<HomePage />);
-    expect(screen.getByRole('heading', { name: 'Her first solo show.' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'Her first New Zealand show.' })
+    ).toBeInTheDocument();
     expect(screen.getByText('Aotearoa, 11 July 1979')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'The setlist from that night' })).toBeInTheDocument();
   });
@@ -38,6 +47,52 @@ describe('HomePage', () => {
     expect(screen.getByText(/7 and 8 February 2014, Vector Arena/)).toBeInTheDocument();
     expect(screen.getByText(/a full night of her songs/)).toBeInTheDocument();
     expect(screen.getByText(/13 May 2023/)).toBeInTheDocument();
+  });
+
+  it('renders the three visits with the weather opener', () => {
+    render(<HomePage />);
+    expect(screen.getByText(/12 degrees and cloudy/)).toBeInTheDocument();
+    for (const visit of visits) {
+      expect(screen.getByText(visit.title)).toBeInTheDocument();
+      expect(screen.getByText(visit.line)).toBeInTheDocument();
+    }
+  });
+
+  it('renders every funny quote', () => {
+    render(<HomePage />);
+    for (const item of funnyQuotes) {
+      expect(screen.getAllByText(new RegExp(item.quote)).length).toBeGreaterThan(0);
+    }
+  });
+
+  it('renders records, trivia and lessons', () => {
+    render(<HomePage />);
+    for (const item of recordItems) {
+      expect(screen.getByText(item.fact)).toBeInTheDocument();
+    }
+    for (const item of triviaItems) {
+      expect(screen.getByText(item.fact)).toBeInTheDocument();
+    }
+    for (const lesson of lessonItems) {
+      expect(screen.getByText(lesson.title)).toBeInTheDocument();
+    }
+  });
+
+  it('renders the look book with credits and sources', () => {
+    render(<HomePage />);
+    for (const look of outfitLooks) {
+      expect(screen.getByAltText(look.alt)).toBeInTheDocument();
+      expect(screen.getByText(`${look.credit}, ${look.license}`)).toBeInTheDocument();
+    }
+  });
+
+  it('renders her pages and causes', () => {
+    render(<HomePage />);
+    for (const link of outsideLinks) {
+      expect(
+        screen.getByRole('link', { name: `${link.label}, opens in a new tab` })
+      ).toHaveAttribute('href', link.url);
+    }
   });
 
   it('renders the listen control with every song', () => {
@@ -77,7 +132,7 @@ describe('HomePage', () => {
     render(<HomePage />);
     expect(screen.getByRole('navigation')).toBeInTheDocument();
     for (const link of sourceLinks) {
-      expect(screen.getByText(link.label)).toBeInTheDocument();
+      expect(screen.getAllByText(link.label).length).toBeGreaterThan(0);
     }
   });
 });

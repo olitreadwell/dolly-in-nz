@@ -10,7 +10,7 @@ import { Reveal } from '@/components/Reveal';
  */
 export function Timeline(): ReactNode {
   return (
-    <section id="story" className="mx-auto max-w-3xl px-6 py-24">
+    <section id="timeline" className="mx-auto max-w-3xl px-6 py-24">
       <Reveal>
         <h2 className="font-display text-4xl font-semibold tracking-tight md:text-5xl">
           Her <em className="text-gold-soft">story</em>
