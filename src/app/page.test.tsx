@@ -126,7 +126,7 @@ describe('HomePage', () => {
     render(<HomePage />);
     for (const image of galleryImages) {
       expect(screen.getByAltText(image.alt)).toBeInTheDocument();
-      expect(screen.getByText(`${image.credit}, ${image.license}`)).toBeInTheDocument();
+      expect(screen.getAllByText(`${image.credit}, ${image.license}`).length).toBeGreaterThan(0);
     }
   });
 

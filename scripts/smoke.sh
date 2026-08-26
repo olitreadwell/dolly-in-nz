@@ -35,7 +35,7 @@ check() {
 }
 
 check "homepage status" "200" "$(curl -s -o /dev/null -w '%{http_code}' "$BASE/")"
-check "hero image status" "200" "$(curl -s -o /dev/null -w '%{http_code}' "$BASE/images/dolly-1977.jpg")"
+check "hero image status" "200" "$(curl -s -o /dev/null -w '%{http_code}' "$BASE/images/dolly-1970.jpg")"
 check "asset status" "200" "$(curl -s -o /dev/null -w '%{http_code}' "$(find out/_next/static -name '*.js' | head -1 | sed 's|^out/|'"$BASE"'/|')")"
 
 echo "smoke: all green"

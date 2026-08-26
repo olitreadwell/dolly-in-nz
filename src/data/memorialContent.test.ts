@@ -29,6 +29,7 @@ describe('memorialContent', () => {
   it('orders timeline entries by year', () => {
     const years = timelineEntries.map((entry) => Number(entry.year));
     expect(years).toEqual([...years].sort((a, b) => a - b));
+    expect(timelineEntries.some((entry) => entry.title === 'The Imagination Library')).toBe(true);
   });
 
   it('gives every tribute card a source url and a quote', () => {
@@ -57,7 +58,7 @@ describe('memorialContent', () => {
   });
 
   it('builds basePath-prefixed image urls for static export', () => {
-    expect(getMemorialImageUrl('dolly-1977.jpg')).toBe('/images/dolly-1977.jpg');
+    expect(getMemorialImageUrl('dolly-1970.jpg')).toBe('/images/dolly-1970.jpg');
     for (const image of galleryImages) {
       expect(image.src).toMatch(/^\/images\//);
     }

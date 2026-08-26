@@ -56,7 +56,7 @@ export function Hero(): ReactNode {
       </div>
       <div className="relative z-10 min-h-[50vh] lg:min-h-0">
         <img
-          src={getMemorialImageUrl('dolly-1977.jpg')}
+          src={getMemorialImageUrl('dolly-1970.jpg')}
           alt="Portrait of Dolly Parton"
           className="h-full w-full object-cover object-top"
         />

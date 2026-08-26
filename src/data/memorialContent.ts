@@ -194,6 +194,11 @@ export const timelineEntries: readonly TimelineEntry[] = [
     body: 'Whitney Houston carried I Will Always Love You to the top of the world. Parton netted roughly $10 million in royalties.',
   },
   {
+    year: '1995',
+    title: 'The Imagination Library',
+    body: 'She mailed the first books in 1995, one a month to every enrolled child in Sevier County, Tennessee. Three decades on, more than 300 million books have reached children around the world \u2014 and she called it her proudest accomplishment.',
+  },
+  {
     year: '2013',
     title: 'One Auckland show, then another',
     body: 'A single Vector Arena show announced in October. Ticket demand added a second night, 8 February, by December.',
@@ -423,12 +428,12 @@ export const musicSongs: readonly MusicSong[] = [
 
 export const galleryImages: readonly GalleryImage[] = [
   {
-    src: getMemorialImageUrl('dolly-1977.jpg'),
-    alt: 'Dolly Parton in a vintage portrait',
-    caption: 'Dolly Parton, vintage portrait',
-    credit: 'Photo by Alan Light',
-    license: 'CC BY 2.0',
-    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_2.jpg',
+    src: getMemorialImageUrl('dolly-1970.jpg'),
+    alt: 'Dolly Parton in the classic bouffant look',
+    caption: 'RCA press photo, 1970',
+    credit: 'RCA Records',
+    license: 'Public domain',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_-_RCA_Press_Photo_(1970).jpg',
   },
   {
     src: getMemorialImageUrl('liseberg-2010.jpg'),
@@ -492,11 +497,12 @@ export const visits: readonly Visit[] = [
       },
     ],
     image: {
-      src: getMemorialImageUrl('dolly-1977.jpg'),
+      src: getMemorialImageUrl('dolly-1970.jpg'),
       alt: 'Dolly Parton in a vintage portrait from the era of her first Auckland show',
-      credit: 'Photo by Alan Light',
-      license: 'CC BY 2.0',
-      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_2.jpg',
+      credit: 'RCA Records',
+      license: 'Public domain',
+      sourceUrl:
+        'https://commons.wikimedia.org/wiki/File:Dolly_Parton_-_RCA_Press_Photo_(1970).jpg',
     },
   },
   {
