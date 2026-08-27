@@ -23,6 +23,12 @@ describe('HomePage', () => {
     expect(screen.getByText('Read her story')).toBeInTheDocument();
   });
 
+  it('shows no photo twice on the page', () => {
+    render(<HomePage />);
+    const imageSrcs = screen.getAllByRole('img').map((image) => image.getAttribute('src'));
+    expect(new Set(imageSrcs).size).toBe(imageSrcs.length);
+  });
+
   it('renders every timeline entry', () => {
     render(<HomePage />);
     for (const entry of timelineEntries) {

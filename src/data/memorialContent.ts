@@ -433,22 +433,6 @@ export const musicSongs: readonly MusicSong[] = [
 
 export const galleryImages: readonly GalleryImage[] = [
   {
-    src: getMemorialImageUrl('dolly-1970.jpg'),
-    alt: 'Dolly Parton in the classic bouffant look',
-    caption: 'RCA press photo, 1970',
-    credit: 'RCA Records',
-    license: 'Public domain',
-    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_-_RCA_Press_Photo_(1970).jpg',
-  },
-  {
-    src: getMemorialImageUrl('dolly-1984-hawaii.jpg'),
-    alt: 'Dolly Parton at the Kahala Hilton in Hawaii in 1984',
-    caption: 'Kahala Hilton, Hawaii, 1984',
-    credit: 'Alan Light',
-    license: 'CC BY 2.0',
-    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_(210610108).jpg',
-  },
-  {
     src: getMemorialImageUrl('kennedy-2006.jpg'),
     alt: 'Dolly Parton at the Kennedy Center Honors in 2006',
     caption: 'Kennedy Center Honors, 2006',
@@ -464,24 +448,6 @@ export const galleryImages: readonly GalleryImage[] = [
     license: 'CC BY 3.0',
     sourceUrl:
       'https://commons.wikimedia.org/wiki/File:Dolly_Parton_accepting_Liseberg_Applause_Award_2010_portrait.jpg',
-  },
-  {
-    src: getMemorialImageUrl('dolly-wolftrap-2011.jpg'),
-    alt: 'Dolly Parton on stage at Wolf Trap in 2011',
-    caption: 'On stage at Wolf Trap, 2011',
-    credit: 'Leeann Cafferata',
-    license: 'CC BY 2.0',
-    sourceUrl:
-      'https://commons.wikimedia.org/wiki/File:Dolly_Parton_at_Wolf_Trap,_2011_IMG_6250_(5997834442).jpg',
-  },
-  {
-    src: getMemorialImageUrl('dolly-2014-knoxville.jpg'),
-    alt: 'Dolly Parton on stage during the Blue Smoke tour in 2014',
-    caption: 'Blue Smoke tour, 2014',
-    credit: 'Kristopher Harris',
-    license: 'CC BY 2.0',
-    sourceUrl:
-      "https://commons.wikimedia.org/wiki/File:Dolly_Parton_at_'Blue_Smoke_World_Tour'_in_Knoxville.jpg",
   },
   {
     src: getMemorialImageUrl('dolly-2023.jpg'),
@@ -515,14 +481,6 @@ export const galleryImages: readonly GalleryImage[] = [
     credit: 'Alan Light',
     license: 'CC BY 2.0',
     sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_2.jpg',
-  },
-  {
-    src: getMemorialImageUrl('dolly-2000.jpg'),
-    alt: 'Dolly Parton at the National Press Club in March 2000',
-    caption: 'National Press Club, Washington DC, 2000',
-    credit: 'National Press Club',
-    license: 'CC BY-SA 2.0',
-    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_2000.jpg',
   },
   {
     src: getMemorialImageUrl('dolly-kennedy-2003.jpg'),
@@ -593,14 +551,6 @@ export const visits: readonly Visit[] = [
         url: 'https://paperspast.natlib.govt.nz/periodicals/RIU19790801.2.16',
       },
     ],
-    image: {
-      src: getMemorialImageUrl('dolly-1970.jpg'),
-      alt: 'Dolly Parton in a vintage portrait from the era of her first Auckland show',
-      credit: 'RCA Records',
-      license: 'Public domain',
-      sourceUrl:
-        'https://commons.wikimedia.org/wiki/File:Dolly_Parton_-_RCA_Press_Photo_(1970).jpg',
-    },
   },
   {
     year: '1987',
@@ -619,13 +569,6 @@ export const visits: readonly Visit[] = [
         url: 'https://paperspast.natlib.govt.nz/periodicals/RIU19870701.2.14.14',
       },
     ],
-    image: {
-      src: getMemorialImageUrl('dolly-rhinestone-1984.jpg'),
-      alt: 'Dolly Parton in rhinestones, photographed in the 1980s',
-      credit: 'Mel Melcon, Los Angeles Times',
-      license: 'CC BY 4.0',
-      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_and_Sylvester_Stallone.jpg',
-    },
   },
   {
     year: '2014',
@@ -871,15 +814,6 @@ export const outfitLooks: readonly OutfitLook[] = [
     sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_at_age_12_(1959).jpg',
   },
   {
-    src: getMemorialImageUrl('dolly-1970.jpg'),
-    alt: 'Dolly Parton in a 1970 RCA Records press photograph',
-    era: '1970',
-    caption: 'The bouffant years: RCA press photo',
-    credit: 'RCA Records',
-    license: 'Public domain',
-    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dolly_Parton_-_RCA_Press_Photo_(1970).jpg',
-  },
-  {
     src: getMemorialImageUrl('dolly-1984-hawaii.jpg'),
     alt: 'Dolly Parton in April 1984 at the Kahala Hilton in Hawaii',
     era: '1984',
@@ -906,16 +840,6 @@ export const outfitLooks: readonly OutfitLook[] = [
     license: 'CC BY 2.0',
     sourceUrl:
       'https://commons.wikimedia.org/wiki/File:Dolly_Parton_at_Wolf_Trap,_2011_IMG_6250_(5997834442).jpg',
-  },
-  {
-    src: getMemorialImageUrl('dolly-2014-knoxville.jpg'),
-    alt: 'Dolly Parton performing in a sparkling outfit on the Blue Smoke tour in Knoxville',
-    era: '2014',
-    caption: 'Blue Smoke tour, Knoxville, May 2014',
-    credit: 'Kristopher Harris',
-    license: 'CC BY 2.0',
-    sourceUrl:
-      "https://commons.wikimedia.org/wiki/File:Dolly_Parton_at_'Blue_Smoke_World_Tour'_in_Knoxville.jpg",
   },
   {
     src: getMemorialImageUrl('dolly-2022-peabody.jpg'),
