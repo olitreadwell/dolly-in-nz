@@ -25,10 +25,10 @@ Other, and push to `main`; no environment variables are required.
 
 - Next.js static export (`output: 'export'`) served at the root, deployed by
   Vercel from `.github`-less project config in `vercel.json`.
-- Tailwind 4 theme: heavenly angel palette of ivory, blush pink, gold and
-  silver with drifting clouds and twinkling sparkles, Cormorant Garamond
-  display serif. Light page, `prefers-reduced-motion` respected, no
-  em-dashes.
+- Tailwind 4 theme: Dolly glam palette of ivory, hot pink, gold and violet
+  with rhinestone sparkles, a glitter overlay, a grape song-title marquee
+  and shimmering CTA buttons, Cormorant Garamond display serif. Light page,
+  `prefers-reduced-motion` respected, no em-dashes.
 - All copy and sources live in `src/data/memorialContent.ts`. Every fact is
   sourced to RNZ, the NZ Herald archive, Wikipedia tour records, or the
   Dollywood Foundation. Nothing is invented.

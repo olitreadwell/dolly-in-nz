@@ -1,5 +1,6 @@
 import { ArrowUpRightIcon } from '@phosphor-icons/react';
 import type { ReactNode } from 'react';
+import { Rhinestone } from '@/components/Rhinestone';
 import { pressArticles } from '@/data/memorialContent';
 import type { PressKind } from '@/data/memorialContent';
 import { Reveal } from '@/components/Reveal';
@@ -21,7 +22,8 @@ export function PressSection(): ReactNode {
   return (
     <section id="press" className="mx-auto max-w-6xl px-6 py-24">
       <Reveal>
-        <h2 className="font-display text-4xl font-semibold tracking-tight md:text-5xl">
+        <h2 className="flex items-center gap-3 font-display text-4xl font-semibold tracking-tight md:text-5xl">
+          <Rhinestone className="h-6 w-6 text-pink" />
           In the New Zealand <em className="text-gold-soft">press</em>
         </h2>
         <p className="mt-4 max-w-[60ch] leading-relaxed text-moss">

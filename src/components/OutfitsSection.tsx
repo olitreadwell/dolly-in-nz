@@ -5,6 +5,7 @@ import { useRef } from 'react';
 import type { ReactNode } from 'react';
 import { outfitLooks } from '@/data/memorialContent';
 import { Reveal } from '@/components/Reveal';
+import { Rhinestone } from '@/components/Rhinestone';
 
 /**
  * A look book across the decades shown as a keyboard-friendly carousel,
@@ -40,7 +41,8 @@ export function OutfitsSection(): ReactNode {
       <Reveal>
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <h2 className="font-display text-4xl font-semibold tracking-tight md:text-5xl">
+            <h2 className="flex items-center gap-3 font-display text-4xl font-semibold tracking-tight md:text-5xl">
+              <Rhinestone className="h-6 w-6 text-pink" />
               The <em className="text-gold-soft">look book</em>
             </h2>
             <p className="mt-4 max-w-[60ch] leading-relaxed text-moss">

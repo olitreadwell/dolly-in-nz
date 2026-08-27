@@ -1,6 +1,7 @@
 import { ArrowDownIcon, SparkleIcon } from '@phosphor-icons/react';
 import type { ReactNode } from 'react';
 import { Cloud } from '@/components/Cloud';
+import { Rhinestone } from '@/components/Rhinestone';
 import { getMemorialImageUrl, heroCopy } from '@/data/memorialContent';
 
 /**
@@ -18,20 +19,19 @@ export function Hero(): ReactNode {
         <Cloud className="animate-drift absolute top-24 left-[-4rem] w-56 text-[#e8e3f4]/90 blur-[2px]" />
         <Cloud className="animate-drift absolute top-1/3 right-[-5rem] w-72 text-[#e2ecf8]/90 blur-[2px] [animation-delay:-7s]" />
         <Cloud className="animate-drift absolute bottom-24 left-1/4 w-48 text-[#f4e2ec]/90 blur-[2px] [animation-delay:-3s]" />
-        <SparkleIcon
-          size={18}
-          weight="fill"
-          className="animate-twinkle absolute top-32 right-1/4 text-gold"
-        />
+        <Rhinestone className="animate-twinkle absolute top-32 right-1/4 h-9 w-9 text-pink" />
+        <Rhinestone className="animate-twinkle absolute top-1/2 left-[12%] h-6 w-6 text-gold-bright [animation-delay:1.2s]" />
+        <Rhinestone className="animate-twinkle absolute right-[8%] bottom-1/4 h-7 w-7 text-violet [animation-delay:2s]" />
+        <Rhinestone className="animate-twinkle absolute top-1/4 left-[42%] h-4 w-4 text-blush [animation-delay:0.6s]" />
         <SparkleIcon
           size={14}
           weight="fill"
-          className="animate-twinkle absolute top-1/2 left-[12%] text-blush [animation-delay:1.2s]"
+          className="animate-twinkle absolute bottom-1/3 left-[28%] text-gold [animation-delay:1.6s]"
         />
         <SparkleIcon
-          size={16}
+          size={12}
           weight="fill"
-          className="animate-twinkle absolute bottom-1/4 right-[8%] text-gold-soft [animation-delay:2s]"
+          className="animate-twinkle absolute top-[18%] right-[38%] text-violet [animation-delay:2.4s]"
         />
       </div>
       <div className="relative z-10 flex flex-col justify-center px-5 pt-28 pb-16 lg:px-16 lg:pt-0 lg:pb-0">
@@ -46,7 +46,7 @@ export function Hero(): ReactNode {
         </p>
         <a
           href={heroCopy.ctaHref}
-          className="animate-rise group mt-10 inline-flex w-fit items-center rounded-full bg-gold py-3 pr-3 pl-7 text-sm font-semibold tracking-wide text-ink shadow-heaven-sm transition-all duration-500 ease-heaven hover:-translate-y-0.5 hover:bg-gold-soft hover:shadow-heaven focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold active:translate-y-0 active:scale-[0.98]"
+          className="btn-glam animate-rise group mt-10 inline-flex w-fit items-center rounded-full bg-gold py-3 pr-3 pl-7 text-sm font-semibold tracking-wide text-ink shadow-heaven-sm transition-all duration-500 ease-heaven hover:-translate-y-0.5 hover:bg-gold-soft hover:shadow-heaven focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold active:translate-y-0 active:scale-[0.98]"
         >
           {heroCopy.cta}
           <span className="ml-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/25 transition-transform duration-500 ease-heaven group-hover:translate-y-0.5">

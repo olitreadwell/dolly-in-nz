@@ -1,4 +1,4 @@
-import { ArrowUpRightIcon } from '@phosphor-icons/react';
+import { ArrowUpRightIcon, SparkleIcon } from '@phosphor-icons/react';
 import type { ReactNode } from 'react';
 import { storyCopy, visits } from '@/data/memorialContent';
 import { Reveal } from '@/components/Reveal';
@@ -14,7 +14,8 @@ export function StorySection(): ReactNode {
     <section id="story" className="border-y border-gold/25 bg-ink-2">
       <div className="mx-auto max-w-6xl px-6 py-24">
         <Reveal>
-          <p className="mb-4 text-[11px] uppercase tracking-[0.22em] text-gold">
+          <p className="mb-4 flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-gold">
+            <SparkleIcon size={12} weight="fill" className="text-pink" aria-hidden="true" />
             {storyCopy.eyebrow}
           </p>
           <h2 className="font-display text-5xl leading-[0.95] font-semibold tracking-tight md:text-6xl">

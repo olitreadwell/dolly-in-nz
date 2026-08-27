@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { Rhinestone } from '@/components/Rhinestone';
 import { galleryImages } from '@/data/memorialContent';
 import { Reveal } from '@/components/Reveal';
 
@@ -11,7 +12,8 @@ export function GallerySection(): ReactNode {
   return (
     <section id="gallery" className="mx-auto max-w-6xl px-6 py-24">
       <Reveal>
-        <h2 className="font-display text-4xl font-semibold tracking-tight md:text-5xl">
+        <h2 className="flex items-center gap-3 font-display text-4xl font-semibold tracking-tight md:text-5xl">
+          <Rhinestone className="h-6 w-6 text-pink" />
           Still <em className="text-gold-soft">shining</em>
         </h2>
       </Reveal>
@@ -24,7 +26,7 @@ export function GallerySection(): ReactNode {
                   src={image.src}
                   alt={image.alt}
                   loading="lazy"
-                  className="aspect-[4/5] w-full object-cover transition-transform duration-700 hover:scale-105"
+                  className="aspect-[4/5] w-full object-cover object-top transition-transform duration-700 hover:scale-105"
                 />
               </div>
               <figcaption className="mt-3">

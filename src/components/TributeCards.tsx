@@ -1,5 +1,6 @@
 import { ArrowUpRightIcon } from '@phosphor-icons/react';
 import type { ReactNode } from 'react';
+import { Rhinestone } from '@/components/Rhinestone';
 import { tributeCards } from '@/data/memorialContent';
 import { Reveal } from '@/components/Reveal';
 
@@ -12,7 +13,8 @@ export function TributeCards(): ReactNode {
   return (
     <section id="tributes" className="mx-auto max-w-6xl px-6 py-24">
       <Reveal>
-        <h2 className="font-display text-4xl font-semibold tracking-tight md:text-5xl">
+        <h2 className="flex items-center gap-3 font-display text-4xl font-semibold tracking-tight md:text-5xl">
+          <Rhinestone className="h-6 w-6 text-pink" />
           Aotearoa said <em className="text-gold-soft">goodbye</em>
         </h2>
       </Reveal>

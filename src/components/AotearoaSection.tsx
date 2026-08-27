@@ -1,4 +1,4 @@
-import { WindIcon } from '@phosphor-icons/react';
+import { SparkleIcon, WindIcon } from '@phosphor-icons/react';
 import type { ReactNode } from 'react';
 import { aotearoaCopy } from '@/data/memorialContent';
 import { Reveal } from '@/components/Reveal';
@@ -14,7 +14,8 @@ export function AotearoaSection(): ReactNode {
     <section id="aotearoa" className="border-y border-gold/25 bg-ink-2">
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-6 py-24 lg:grid-cols-[3fr_2fr]">
         <Reveal>
-          <p className="mb-4 text-[11px] uppercase tracking-[0.22em] text-gold">
+          <p className="mb-4 flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-gold">
+            <SparkleIcon size={12} weight="fill" className="text-pink" aria-hidden="true" />
             {aotearoaCopy.eyebrow}
           </p>
           <h2 className="font-display text-5xl leading-[0.95] font-semibold tracking-tight md:text-6xl">

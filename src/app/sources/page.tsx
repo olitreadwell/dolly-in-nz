@@ -3,6 +3,7 @@
 import { ArrowUpRightIcon, ArrowLeftIcon } from '@phosphor-icons/react';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
+import { Rhinestone } from '@/components/Rhinestone';
 import { sourceLinks } from '@/data/memorialContent';
 
 /**
@@ -23,7 +24,8 @@ export default function SourcesPage(): ReactNode {
             <ArrowLeftIcon size={14} weight="bold" aria-hidden="true" />
             Back to the memorial
           </Link>
-          <h1 className="mt-8 font-display text-5xl leading-[0.95] font-semibold tracking-tight md:text-6xl">
+          <h1 className="mt-8 flex items-center gap-3 font-display text-5xl leading-[0.95] font-semibold tracking-tight md:text-6xl">
+            <Rhinestone className="h-7 w-7 text-pink" />
             Sources &amp; <em className="text-gold-soft">reading list</em>
           </h1>
           <p className="mt-6 max-w-[62ch] leading-relaxed text-moss">
